@@ -1,0 +1,199 @@
+---
+const links = [
+  { label: 'Servicios',  href: '#servicios' },
+  { label: 'Rutas',      href: '#rutas' },
+  { label: 'Empresa',    href: '#nosotros-info' },
+  { label: 'Reseñas',   href: '#reseñas' },
+  { label: 'Contacto',   href: '#contacto' },
+];
+---
+
+<header
+  id="nav"
+  class="sticky top-0 z-50 border-b border-transparent transition-all duration-300"
+  style="background: #0b1d3a;"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between gap-4">
+
+    <!-- Logo: un solo SVG, color controlado por CSS filter -->
+    <a href="/" aria-label="AV2R La Mundial — Inicio">
+      <img
+        id="nav-logo"
+        src="/logo.svg"
+        alt="AV2R La Mundial"
+        class="h-10 w-auto block"
+        style="filter: brightness(0) invert(1);"
+        width="160"
+        height="40"
+        loading="eager"
+      />
+    </a>
+
+    <!-- Nav links (desktop) -->
+    <nav class="hidden md:flex items-center gap-7" aria-label="Navegación principal">
+      {links.map(({ label, href }) => (
+        <a
+          href={href}
+          class="nav-link text-sm font-medium transition-colors relative text-white/80 hover:text-white"
+          data-section={href.replace('#', '')}
+        >
+          {label}
+          <span class="nav-underline absolute -bottom-[20px] left-0 right-0 h-[2px] bg-blue-accent scale-x-0 transition-transform duration-300 origin-left"></span>
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA + hamburger -->
+    <div class="flex items-center gap-3">
+      <a
+        id="nav-cta"
+        href="#cotizar"
+        class="text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shrink-0 bg-blue text-white hover:bg-[#1550a0]"
+      >
+        Cotizar ahora
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button
+        id="menu-btn"
+        class="md:hidden flex flex-col items-center justify-center w-9 h-9 gap-1.5 rounded-md transition-colors hover:bg-white/10"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="ham-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="ham-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="ham-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t"
+    style="background: #0b1d3a; border-color: rgba(255,255,255,0.1);"
+    aria-hidden="true"
+  >
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1" aria-label="Navegación mobile">
+      {links.map(({ label, href }) => (
+        <a
+          href={href}
+          class="mobile-nav-link text-white/80 text-sm font-medium py-2.5 px-3 rounded-md hover:bg-white/10 hover:text-white transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="tel:5510530425"
+        class="mt-2 flex items-center gap-2 text-blue-accent text-sm font-semibold py-2.5 px-3 rounded-md"
+        style="background: rgba(255,255,255,0.07);"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+        </svg>
+        55 1053 0425
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const nav        = document.getElementById('nav');
+  const navLogo    = document.getElementById('nav-logo');
+  const navLinks   = document.querySelectorAll('.nav-link');
+  const hamLines   = document.querySelectorAll('.ham-line');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuBtn    = document.getElementById('menu-btn');
+
+  /* ── Scroll: modo oscuro → claro ─────────────────────── */
+  const THRESHOLD = 80;
+
+  const setNavMode = (opaque) => {
+    nav.style.background        = opaque ? 'white' : '#0b1d3a';
+    nav.style.borderBottomColor = opaque ? 'var(--color-border, #e4e8f0)' : 'transparent';
+    nav.style.boxShadow         = opaque ? '0 4px 24px rgba(11,29,58,0.10)' : 'none';
+
+    // Logo: blanco en dark, negro en light
+    navLogo.style.filter = opaque ? 'brightness(0)' : 'brightness(0) invert(1)';
+
+    // Links
+    navLinks.forEach(l => {
+      l.style.color = opaque ? '#4a5f7c' : 'rgba(255,255,255,0.8)';
+      l.onmouseover = () => { l.style.color = opaque ? '#1a5fb8' : 'white'; };
+      l.onmouseout  = () => { l.style.color = opaque ? '#4a5f7c' : 'rgba(255,255,255,0.8)'; };
+    });
+
+    // Hamburger líneas
+    hamLines.forEach(l => {
+      l.style.backgroundColor = opaque ? '#0b1d3a' : 'white';
+    });
+
+    // Mobile menu bg
+    if (mobileMenu) {
+      mobileMenu.style.background     = opaque ? 'white' : '#0b1d3a';
+      mobileMenu.style.borderTopColor = opaque ? '#e4e8f0' : 'rgba(255,255,255,0.1)';
+      mobileMenu.querySelectorAll('.mobile-nav-link').forEach(a => {
+        a.style.color = opaque ? '#0b1d3a' : 'rgba(255,255,255,0.8)';
+      });
+    }
+  };
+
+  window.addEventListener('scroll', () => {
+    setNavMode(window.scrollY > THRESHOLD);
+  }, { passive: true });
+
+  // Estado inicial (top of page = dark mode)
+  setNavMode(window.scrollY > THRESHOLD);
+
+  /* ── Hamburger toggle ─────────────────────────────────── */
+  menuBtn.addEventListener('click', () => {
+    const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenu.classList.toggle('hidden', isOpen);
+    mobileMenu.setAttribute('aria-hidden', String(isOpen));
+
+    if (!isOpen) {
+      hamLines[0].style.transform = 'translateY(8px) rotate(45deg)';
+      hamLines[1].style.opacity   = '0';
+      hamLines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      hamLines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+    }
+  });
+
+  // Cerrar menú al clic en link
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamLines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+    });
+  });
+
+  /* ── Active nav link por sección ─────────────────────── */
+  const sectionIds = Array.from(navLinks).map(l => l.dataset.section).filter(Boolean);
+
+  const activateLink = (id) => {
+    const isOpaque = window.scrollY > THRESHOLD;
+    navLinks.forEach(l => {
+      const active = l.dataset.section === id;
+      const underline = l.querySelector('.nav-underline');
+      if (underline) underline.style.transform = active ? 'scaleX(1)' : '';
+    });
+  };
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => { if (e.isIntersecting) activateLink(e.target.id); });
+    },
+    { threshold: 0.25, rootMargin: '-64px 0px -40% 0px' }
+  );
+
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sectionObserver.observe(el);
+  });
+</script>

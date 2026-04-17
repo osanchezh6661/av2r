@@ -1,0 +1,96 @@
+---
+// TODO: Validar todos los datos con el cliente antes de publicar
+const values = [
+  { label: 'Confianza', desc: 'Cada embarque que aceptamos es una promesa. Nuestros clientes llevan años confiándonos su carga porque nunca los hemos fallado.' },
+  { label: 'Puntualidad', desc: 'Entendemos que los tiempos de entrega afectan toda tu cadena de suministro. Cumplimos los plazos o te avisamos con anticipación.' },
+  { label: 'Seguridad', desc: 'Operadores certificados, unidades con mantenimiento preventivo y seguro de carga incluido en todos nuestros servicios.' },
+];
+---
+<section id="nosotros-info" class="bg-white py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Columna texto -->
+      <div>
+        <p class="text-blue text-xs font-semibold tracking-widest uppercase mb-3"
+           data-anim="fade-up">
+          Quiénes somos
+        </p>
+        <h2 class="text-3xl lg:text-4xl font-bold text-navy tracking-tight mb-6"
+            data-anim="fade-up" data-delay="80">
+          Empresa mexicana con<br />experiencia de primera mano
+        </h2>
+        <p class="text-muted text-base leading-relaxed mb-6"
+           data-anim="fade-up" data-delay="160">
+          AV2R La Mundial nació en Ciudad de México con una misión clara: hacer el transporte de carga
+          terrestre más confiable, transparente y accesible para empresas de todos los tamaños.
+          Con más de 15 años en el mercado, conocemos cada ruta, cada punto de control y cada necesidad
+          de nuestros clientes.
+        </p>
+        <p class="text-muted text-base leading-relaxed mb-8"
+           data-anim="fade-up" data-delay="200">
+          Nos especializamos en rutas hacia Veracruz, el sureste mexicano y el Corredor Interoceánico,
+          atendiendo industrias que van desde la ganadería hasta el comercio exterior. Nuestros operadores
+          son certificados, nuestras unidades son propias y nuestra promesa es siempre la misma: tu carga
+          llega.
+        </p>
+
+        <!-- Valores -->
+        <div class="space-y-4" data-anim="fade-up" data-delay="260">
+          {values.map((v, i) => (
+            <div class="flex items-start gap-3">
+              <div class="w-1 h-full min-h-[2.5rem] rounded-full bg-blue shrink-0 mt-1" aria-hidden="true"></div>
+              <div>
+                <h3 class="text-navy text-sm font-semibold">{v.label}</h3>
+                <p class="text-muted text-xs leading-relaxed mt-0.5">{v.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Columna visual: tarjeta oscura con datos de empresa -->
+      <div data-anim="slide-right" data-delay="100">
+        <div
+          class="rounded-2xl p-8 space-y-7"
+          style="background: linear-gradient(135deg, #0b1d3a 0%, #122d5a 100%); border: 1px solid rgba(0,200,255,0.15);"
+        >
+          <!-- Título -->
+          <div class="border-b border-white/10 pb-5">
+            <p class="text-blue-accent text-xs font-semibold tracking-widest uppercase mb-2">AV2R La Mundial</p>
+            <h3 class="text-white text-xl font-bold">Datos de la empresa</h3>
+            <p class="text-[#7a9bbf] text-xs mt-1">
+              * Información sujeta a actualización por el cliente
+            </p>
+          </div>
+
+          <!-- Datos clave -->
+          <div class="grid grid-cols-2 gap-5">
+            {[
+              { label: 'Fundación', value: 'Más de 15 años' },
+              { label: 'Base operativa', value: 'Ciudad de México' },
+              { label: 'Cobertura', value: 'República Mexicana' },
+              { label: 'Operación', value: '24 / 7 / 365' },
+              { label: 'Tipo de flota', value: 'Propia, no subcontratada' },
+              { label: 'Seguro de carga', value: 'Incluido en todos' },
+            ].map(({ label, value }) => (
+              <div>
+                <p class="text-[#5c9fe0] text-[10px] font-semibold uppercase tracking-wide mb-1">{label}</p>
+                <p class="text-white text-sm font-medium">{value}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- CTA -->
+          <a
+            href="#cotizar"
+            class="block text-center bg-blue text-white text-sm font-semibold px-6 py-3 rounded-md hover:bg-[#1550a0] transition-colors"
+          >
+            Hablar con un asesor
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

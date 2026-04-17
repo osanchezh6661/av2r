@@ -1,0 +1,88 @@
+---
+// Reemplaza la URL con foto real de la flota AV2R cuando esté disponible
+const FLEET_IMG = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=75';
+---
+<section
+  class="relative parallax-section"
+  style="min-height: 420px;"
+  data-parallax-section
+  aria-label="Flota AV2R La Mundial"
+>
+  <!-- Foto de flota con parallax -->
+  <img
+    src={FLEET_IMG}
+    alt="Flota de camiones AV2R La Mundial"
+    class="parallax-img"
+    data-parallax="0.4"
+    width="1920"
+    height="800"
+    loading="lazy"
+  />
+
+  <!-- Overlay con gradiente intenso -->
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(to right, rgba(11,29,58,0.96) 0%, rgba(11,29,58,0.80) 45%, rgba(11,29,58,0.60) 100%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Línea neon horizontal decorativa -->
+  <div
+    class="absolute left-0 right-0 opacity-30 pointer-events-none"
+    style="top: 50%; height: 1px; background: linear-gradient(90deg, transparent, #00c8ff 30%, #00c8ff 70%, transparent); transform: translateY(-50%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido centrado -->
+  <div class="relative h-full flex items-center">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full py-20 lg:py-28">
+      <div class="max-w-2xl" data-anim="fade-up">
+
+        <p class="text-blue-accent text-xs font-semibold tracking-widest uppercase mb-4">
+          Nuestra flota
+        </p>
+
+        <h2
+          class="text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight mb-6"
+          data-anim="fade-up" data-delay="80"
+        >
+          Cada ruta.<br />
+          <span class="gradient-text">Cada entrega. A tiempo.</span>
+        </h2>
+
+        <p
+          class="text-[#7a9bbf] text-base lg:text-lg leading-relaxed mb-8 max-w-xl"
+          data-anim="fade-up" data-delay="160"
+        >
+          Unidades modernas con rastreo GPS, operadores certificados y
+          protocolos de seguridad que garantizan la integridad de tu mercancía
+          en cada kilómetro del trayecto.
+        </p>
+
+        <!-- Puntos clave en línea -->
+        <div class="flex flex-wrap gap-x-8 gap-y-3" data-anim="fade-up" data-delay="240">
+          {[
+            'Rastreo GPS 24/7',
+            'Operadores certificados',
+            'Seguro de carga incluido',
+            'Reporte en tiempo real',
+          ].map((item) => (
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon flex-shrink-0"
+                    style="box-shadow: 0 0 6px rgba(0,200,255,0.8);"></span>
+              <span class="text-white text-sm font-medium">{item}</span>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Divisor inferior hacia bg-surface -->
+  <div class="divider-wrap" aria-hidden="true">
+    <svg viewBox="0 0 1440 56" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:56px;">
+      <path d="M0 56L1440 0V56H0Z" fill="#f5f6fa"/>
+    </svg>
+  </div>
+</section>

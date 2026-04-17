@@ -1,0 +1,328 @@
+---
+import RouteMap from './RouteMap.astro';
+
+const TRUCK_IMG = 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1400&q=85';
+
+const links = [
+  { label: 'Servicios',  href: '#servicios' },
+  { label: 'Rutas',      href: '#rutas' },
+  { label: 'Empresa',    href: '#nosotros-info' },
+  { label: 'Reseñas',   href: '#reseñas' },
+  { label: 'Contacto',   href: '#contacto' },
+];
+---
+
+<!-- ══════════════════════════════════════════════════
+     NAV — light gray, logo integrado, siempre opaco
+     ══════════════════════════════════════════════════ -->
+<header
+  id="nav"
+  class="fixed top-0 left-0 right-0 z-50"
+  style="background:#f0f2f7;border-bottom:1px solid #dde1ea;box-shadow:0 2px 12px rgba(11,29,58,0.07);"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-12"
+    style="height:64px;display:flex;align-items:center;position:relative;"
+  >
+    <!-- Logo — bleed badge (overflows below nav bar) -->
+    <a
+      href="/"
+      aria-label="AV2R La Mundial — Inicio"
+      style="
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        align-self:flex-start;
+        flex-shrink:0;
+        height:88px;
+        padding:0 20px 0 4px;
+        background:#f0f2f7;
+        border-radius:0 0 14px 14px;
+        box-shadow:0 6px 20px rgba(11,29,58,0.10);
+        position:relative;
+        z-index:2;
+      "
+    >
+      <img
+        id="nav-logo"
+        src="/logo.svg"
+        alt="AV2R La Mundial"
+        style="width:clamp(130px,11vw,168px);height:auto;filter:brightness(0);display:block;"
+        loading="eager"
+      />
+    </a>
+
+    <!-- Links — truly centered in the bar -->
+    <nav
+      class="hidden md:flex items-center gap-1"
+      aria-label="Navegación principal"
+      style="position:absolute;left:50%;transform:translateX(-50%);"
+    >
+      {links.map(({ label, href }) => (
+        <a
+          href={href}
+          class="nav-link text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-200"
+          style="color:#4a5f7c;"
+          data-section={href.replace('#','')}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA + hamburger — pinned right -->
+    <div class="flex items-center gap-3 ml-auto" style="z-index:1;">
+      <a
+        id="nav-cta"
+        href="#cotizar"
+        class="hidden md:inline-flex text-sm font-semibold px-5 py-2 rounded-full text-white shrink-0 transition-all hover:brightness-110"
+        style="background:#1a5fb8;box-shadow:0 2px 12px rgba(26,95,184,0.30);"
+      >
+        Cotizar ahora
+      </a>
+
+      <button
+        id="menu-btn"
+        class="md:hidden flex flex-col items-center justify-center w-9 h-9 gap-1.5 rounded-md transition-colors hover:bg-black/5"
+        aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"
+      >
+        <span class="ham-line block w-5 h-0.5 transition-all duration-300" style="background:#0b1d3a;"></span>
+        <span class="ham-line block w-5 h-0.5 transition-all duration-300" style="background:#0b1d3a;"></span>
+        <span class="ham-line block w-5 h-0.5 transition-all duration-300" style="background:#0b1d3a;"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t"
+    style="background:#f0f2f7;border-color:#dde1ea;"
+    aria-hidden="true"
+  >
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex flex-col gap-1" aria-label="Navegación mobile">
+      {links.map(({ label, href }) => (
+        <a
+          href={href}
+          class="mobile-nav-link text-sm font-medium py-2.5 px-3 rounded-md hover:bg-black/5 transition-colors"
+          style="color:#0b1d3a;"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="#cotizar"
+        class="mt-4 flex items-center justify-center text-white text-sm font-bold py-3.5 px-6 rounded-full"
+        style="background:#1a5fb8;box-shadow:0 0 20px rgba(26,95,184,0.35);"
+      >
+        Cotizar mi flete ahora
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO — Split: dark left / truck image right
+     ══════════════════════════════════════════════════ -->
+<section
+  id="hero"
+  class="hero-section"
+  style="min-height:100vh;padding-top:64px;display:flex;"
+>
+
+  <!-- LEFT: dark panel — grid bg + route map + text -->
+  <div
+    class="hero-left"
+    style="
+      flex:0 0 50%;
+      position:relative;
+      overflow:hidden;
+      background-color:#020b14;
+      background-image:
+        linear-gradient(rgba(92,159,224,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92,159,224,0.07) 1px, transparent 1px);
+      background-size:44px 44px;
+    "
+  >
+    <!-- Animated route map -->
+    <RouteMap />
+
+    <!-- Vignette: keeps text legible over the map animation -->
+    <div style="position:absolute;inset:0;z-index:2;pointer-events:none;
+      background:radial-gradient(ellipse at 30% 55%, transparent 35%, rgba(2,11,20,0.55) 80%);">
+    </div>
+
+    <!-- Text content above map -->
+    <div style="position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:4rem 4vw 4rem 8vw;min-height:100%;">
+
+    <!-- Kicker -->
+    <p
+      class="hero-el font-semibold tracking-[0.22em] uppercase mb-5"
+      style="--d:0ms;color:#5c9fe0;font-size:10px;display:flex;align-items:center;gap:10px;"
+    >
+      <span style="display:inline-block;width:28px;height:1.5px;background:#5c9fe0;opacity:0.7;flex-shrink:0;"></span>
+      Logística pesada nacional
+    </p>
+
+    <!-- H1 -->
+    <h1
+      class="hero-el text-white uppercase"
+      style="--d:80ms;font-family:'Barlow Condensed',var(--font-sans);font-weight:900;font-size:clamp(3rem,5.5vw,6.5rem);line-height:0.88;letter-spacing:-0.01em;margin-bottom:0;"
+    >
+      AV2R:<br />
+      Poder<br />
+      Logístico<br />
+      en Movimiento.
+    </h1>
+
+    <!-- Subtítulo -->
+    <p
+      class="hero-el leading-relaxed"
+      style="--d:220ms;color:#8aabcc;font-size:clamp(0.83rem,1vw,0.9375rem);max-width:360px;margin-top:1.75rem;margin-bottom:2.25rem;"
+    >
+      Garantizamos la llegada de tu carga al Sureste y
+      Corredor Interoceánico con operadores certificados
+      y monitoreo GPS 24/7.
+      <strong style="color:rgba(255,255,255,0.85);font-weight:500;"> Seguridad que impulsa tu negocio.</strong>
+    </p>
+
+    <!-- CTA -->
+    <div class="hero-el" style="--d:320ms;">
+      <a
+        href="#cotizar"
+        class="cta-pulse inline-flex items-center gap-2.5 text-white font-bold rounded-full bg-gradient-to-r from-blue-600 to-blue-500 transition-all hover:brightness-110 hover:scale-[1.02]"
+        style="font-size:0.875rem;letter-spacing:0.06em;padding:0.875rem 2rem;box-shadow:0 0 40px rgba(37,99,235,0.45),0 4px 20px rgba(0,0,0,0.4);"
+      >
+        COTIZAR MI FLETE AHORA
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+        </svg>
+      </a>
+      <p style="margin-top:0.75rem;font-size:11px;color:#475569;letter-spacing:0.05em;">*Respuesta en menos de 30 min.</p>
+    </div>
+
+    <!-- Trust Bar -->
+    <div
+      class="hero-el"
+      style="--d:460ms;display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem 1.25rem;margin-top:2rem;padding-top:1.75rem;border-top:1px solid rgba(255,255,255,0.08);"
+    >
+      {['+15 Años de Experiencia','Cobertura Nacional','Seguro de Carga Activo'].map(label => (
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="9" stroke="#1a5fb8" stroke-width="1.5"/>
+            <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#5c9fe0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-size:0.75rem;color:rgba(255,255,255,0.60);font-weight:500;">{label}</span>
+        </div>
+      ))}
+    </div>
+
+    </div>{/* end text wrapper */}
+  </div>
+
+  <!-- RIGHT: truck photo -->
+  <div
+    class="hero-right"
+    style={`
+      flex: 0 0 50%;
+      position: relative;
+      overflow: hidden;
+      background-image: url('${TRUCK_IMG}');
+      background-size: cover;
+      background-position: center center;
+    `}
+  >
+    <!-- Blend edge: fade left side into dark panel -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,#020b14 0%,rgba(2,11,20,0.55) 22%,transparent 50%);z-index:1;pointer-events:none;"></div>
+    <!-- Subtle dark vignette bottom -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,11,20,0.45) 0%,transparent 40%);z-index:1;pointer-events:none;"></div>
+  </div>
+
+</section>
+
+
+<style is:global>
+  /* Mobile: stack vertically, image as background behind text */
+  @media (max-width: 767px) {
+    .hero-section {
+      flex-direction: column !important;
+      background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80') !important;
+      background-size: cover !important;
+      background-position: center 30% !important;
+    }
+    .hero-left {
+      flex: none !important;
+      width: 100% !important;
+      min-height: calc(100vh - 64px) !important;
+      padding-left: 6vw !important;
+      padding-right: 6vw !important;
+      background: linear-gradient(to bottom, rgba(2,11,20,0.70) 0%, rgba(2,11,20,0.92) 50%, #020b14 100%) !important;
+    }
+    .hero-right { display: none !important; }
+  }
+
+  /* Nav link default + hover */
+  .nav-link:hover { color: #0b1d3a !important; background: rgba(11,29,58,0.07); }
+
+  /* Active nav link — pill highlight */
+  .nav-link.is-active {
+    color: #ffffff !important;
+    background: #0b1d3a !important;
+  }
+</style>
+
+
+<script is:inline>
+  const navCta     = document.getElementById('nav-cta');
+  const navLinks   = document.querySelectorAll('.nav-link');
+  const hamLines   = document.querySelectorAll('.ham-line');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuBtn    = document.getElementById('menu-btn');
+  const heroEl     = document.getElementById('hero');
+
+  /* Nav CTA: always visible (nav is always light, CTA fits) */
+  const updateCta = () => {
+    if (!navCta || !heroEl) return;
+    const inHero = window.scrollY < heroEl.offsetHeight * 0.85;
+    navCta.style.opacity    = inHero ? '0' : '1';
+    navCta.style.visibility = inHero ? 'hidden' : 'visible';
+  };
+  window.addEventListener('scroll', updateCta, { passive: true });
+  updateCta();
+
+  /* Hamburger */
+  menuBtn.addEventListener('click', () => {
+    const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenu.classList.toggle('hidden', isOpen);
+    mobileMenu.setAttribute('aria-hidden', String(isOpen));
+    if (!isOpen) {
+      hamLines[0].style.transform = 'translateY(8px) rotate(45deg)';
+      hamLines[1].style.opacity   = '0';
+      hamLines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      hamLines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+    }
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamLines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+    });
+  });
+
+  /* Active nav link — pill highlight */
+  const sectionIds = Array.from(navLinks).map(l => l.dataset.section).filter(Boolean);
+  const activateLink = (id) => {
+    navLinks.forEach(l => l.classList.toggle('is-active', l.dataset.section === id));
+  };
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) activateLink(e.target.id); }),
+    { threshold: 0.25, rootMargin: '-64px 0px -40% 0px' }
+  );
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+</script>

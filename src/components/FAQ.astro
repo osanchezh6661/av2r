@@ -1,0 +1,126 @@
+---
+const faqs = [
+  {
+    q: '¿Cuánto tarda un flete de Ciudad de México a Veracruz?',
+    a: 'Generalmente entre 6 y 9 horas dependiendo del tipo de unidad, la carga y el punto de entrega específico en Veracruz. Rutas hacia el puerto suelen completarse en el mismo día.',
+  },
+  {
+    q: '¿El seguro de carga está incluido en el precio?',
+    a: 'Sí. Todos nuestros servicios incluyen seguro de carga básico. Para cargas de alto valor o mercancía especializada, podemos ampliar la cobertura bajo cotización adicional. Consulta con tu asesor.',
+  },
+  {
+    q: '¿Cómo puedo rastrear mi envío en tiempo real?',
+    a: 'Todas nuestras unidades cuentan con rastreo GPS activo. Te compartimos el link de seguimiento o el número de unidad al confirmar el servicio para que monitorees el avance desde tu dispositivo.',
+  },
+  {
+    q: '¿Qué documentación necesito para transportar ganado?',
+    a: 'Para transporte ganadero se requiere: certificado de salud animal emitido por SENASICA, guía de tránsito pecuario y factura o carta porte del propietario. Nuestros operadores conocen perfectamente los puntos de verificación zoosanitaria.',
+  },
+  {
+    q: '¿Atienden los fines de semana y días festivos?',
+    a: 'Sí. Operamos los 365 días del año, incluidos fines de semana y festivos. Contamos con equipo de atención para urgencias. Pueden existir tiempos de respuesta ligeramente mayores en días festivos.',
+  },
+  {
+    q: '¿Cuál es la carga mínima o el volumen mínimo para contratar un servicio?',
+    a: 'No tenemos un mínimo estricto. Atendemos desde cargas parciales (LTL) hasta cargas completas (FTL). El precio varía según el volumen, peso y tipo de carga. Contáctanos para una cotización personalizada.',
+  },
+  {
+    q: '¿Tienen servicio de carga de retorno?',
+    a: 'Sí. Ofrecemos carga de retorno en rutas disponibles, lo que puede representar un ahorro significativo para el cliente. Consulta disponibilidad al momento de cotizar.',
+  },
+  {
+    q: '¿En cuánto tiempo recibo la cotización?',
+    a: 'Nuestro compromiso es responderte en menos de 2 horas hábiles. Si nos contactas fuera de horario, recibirás tu cotización a primera hora del día siguiente. También puedes solicitar cotización urgente por WhatsApp.',
+  },
+];
+---
+<section class="bg-surface py-16 lg:py-20" id="faq">
+  <div class="max-w-3xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <p class="text-blue text-xs font-semibold tracking-widest uppercase mb-3"
+         data-anim="fade-up">
+        Preguntas frecuentes
+      </p>
+      <h2 class="text-3xl lg:text-4xl font-bold text-navy tracking-tight"
+          data-anim="fade-up" data-delay="80">
+        Resolvemos tus dudas
+      </h2>
+    </div>
+
+    <!-- Acordeón -->
+    <div class="space-y-3" id="faq-list">
+      {faqs.map((faq, i) => (
+        <div
+          class="bg-white border border-border rounded-xl overflow-hidden"
+          data-anim="fade-up"
+          data-delay={i * 60}
+        >
+          <button
+            class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-4 text-left group"
+            aria-expanded="false"
+          >
+            <span class="text-navy text-sm font-medium group-hover:text-blue transition-colors">
+              {faq.q}
+            </span>
+            <svg
+              class="faq-icon w-5 h-5 text-blue shrink-0 transition-transform duration-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-body hidden px-6 pb-5">
+            <p class="text-muted text-sm leading-relaxed border-t border-border pt-4">
+              {faq.a}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-10 text-center" data-anim="fade-up" data-delay="500">
+      <p class="text-muted text-sm mb-4">¿Tienes una pregunta que no está aquí?</p>
+      <a
+        href="tel:5510530425"
+        class="inline-flex items-center gap-2 border border-blue text-blue text-sm font-semibold px-6 py-3 rounded-md hover:bg-blue hover:text-white transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+        </svg>
+        Llámanos directo
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+  document.querySelectorAll('.faq-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const body = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Cerrar todos los demás
+      document.querySelectorAll('.faq-trigger').forEach((other) => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.classList.add('hidden');
+          other.querySelector('.faq-icon').style.transform = '';
+        }
+      });
+
+      // Toggle actual
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      body.classList.toggle('hidden', isOpen);
+      icon.style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+  });
+</script>

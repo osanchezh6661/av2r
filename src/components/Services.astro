@@ -1,0 +1,88 @@
+---
+const services = [
+  {
+    num: '01',
+    title: 'Carga General',
+    desc: 'Transporte de mercancía paletizada, empaquetada y a granel en rutas nacionales. Servicio confiable para todo tipo de producto.',
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+    </svg>`,
+  },
+  {
+    num: '02',
+    title: 'Jaula Ganadera',
+    desc: 'Transporte especializado de ganado bovino, porcino y ovino. Unidades diseñadas para el bienestar animal y la normativa vigente.',
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+    </svg>`,
+  },
+  {
+    num: '03',
+    title: 'Plataforma',
+    desc: 'Traslado de maquinaria pesada, vehículos, equipos industriales y cargas sobredimensionadas con plataformas de distintos tamaños.',
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+    </svg>`,
+  },
+  {
+    num: '04',
+    title: 'Carga Local',
+    desc: 'Distribución y logística en Ciudad de México y Zona Metropolitana. Entregas puntuales para empresas y comercios de la región.',
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+    </svg>`,
+  },
+];
+---
+<section id="servicios" class="bg-surface py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header de sección -->
+    <div class="mb-12">
+      <p class="text-blue text-xs font-semibold tracking-widest uppercase mb-3"
+         data-anim="fade-up">
+        Nuestros servicios
+      </p>
+      <h2 class="text-3xl lg:text-4xl font-bold text-navy tracking-tight"
+          data-anim="fade-up" data-delay="80">
+        Soluciones para cada tipo de carga
+      </h2>
+    </div>
+
+    <!-- Grid de servicios con stagger -->
+    <div class="grid sm:grid-cols-2 gap-4">
+      {services.map((svc, i) => (
+        <article
+          class="neon-card bg-white border border-border rounded-xl p-6 flex items-start gap-5 cursor-default"
+          data-anim="fade-up"
+          data-delay={i * 100}
+        >
+          <span class="text-xs font-bold text-blue min-w-[2rem] pt-0.5">{svc.num}</span>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-lg bg-blue/8 flex items-center justify-center text-blue shrink-0 transition-colors group-hover:bg-blue/15">
+              <Fragment set:html={svc.icon} />
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-navy mb-1.5">{svc.title}</h3>
+              <p class="text-xs text-muted leading-relaxed">{svc.desc}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-10 text-center" data-anim="fade-up" data-delay="420">
+      <a
+        href="#cotizar"
+        class="inline-flex items-center gap-2 bg-blue text-white text-sm font-semibold px-7 py-3.5 rounded-md hover:bg-navy transition-colors"
+      >
+        Cotizar mi servicio
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
