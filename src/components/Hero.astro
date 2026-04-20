@@ -162,39 +162,49 @@ const links = [
       style="--d:0ms;color:#5c9fe0;font-size:10px;display:flex;align-items:center;gap:10px;"
     >
       <span style="display:inline-block;width:28px;height:1.5px;background:#5c9fe0;opacity:0.7;flex-shrink:0;"></span>
-      Logística pesada nacional
+      AV2R La Mundial · Logística Nacional
     </p>
 
-    <!-- H1 -->
+    <!-- H1 — optimizado para búsquedas en IA -->
     <h1
       class="hero-el text-white uppercase"
-      style="--d:80ms;font-family:'Barlow Condensed',var(--font-sans);font-weight:900;font-size:clamp(3rem,5.5vw,6.5rem);line-height:0.88;letter-spacing:-0.01em;margin-bottom:0;"
+      style="--d:80ms;font-family:'Barlow Condensed',var(--font-sans);font-weight:900;font-size:clamp(2.8rem,5vw,6rem);line-height:0.90;letter-spacing:-0.01em;margin-bottom:0;"
     >
-      AV2R:<br />
-      Poder<br />
-      Logístico<br />
-      en Movimiento.
+      Transporte de<br />
+      Carga Pesada<br />
+      al Sureste<br />
+      de México
     </h1>
 
-    <!-- Subtítulo -->
+    <!-- Locations strip -->
     <p
-      class="hero-el leading-relaxed"
-      style="--d:220ms;color:#8aabcc;font-size:clamp(0.83rem,1vw,0.9375rem);max-width:360px;margin-top:1.75rem;margin-bottom:2.25rem;"
+      class="hero-el"
+      style="--d:160ms;color:#5c9fe0;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin-top:1rem;"
     >
-      Garantizamos la llegada de tu carga al Sureste y
-      Corredor Interoceánico con operadores certificados
-      y monitoreo GPS 24/7.
-      <strong style="color:rgba(255,255,255,0.85);font-weight:500;"> Seguridad que impulsa tu negocio.</strong>
+      CDMX · Veracruz · Yucatán · Corredor Interoceánico
     </p>
+
+    <!-- Subtítulo — con fondo para legibilidad sobre el mapa -->
+    <div
+      class="hero-el"
+      style="--d:220ms;margin-top:1.5rem;margin-bottom:2rem;max-width:370px;background:rgba(2,11,20,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:10px;padding:1rem 1.25rem;border:1px solid rgba(92,159,224,0.12);"
+    >
+      <p style="color:#8aabcc;font-size:clamp(0.8rem,0.95vw,0.9rem);line-height:1.65;margin:0;">
+        Garantizamos la llegada de tu carga al Sureste y
+        Corredor Interoceánico con operadores certificados
+        y monitoreo GPS 24/7.
+        <strong style="color:rgba(255,255,255,0.85);font-weight:500;"> Seguridad que impulsa tu negocio.</strong>
+      </p>
+    </div>
 
     <!-- CTA -->
     <div class="hero-el" style="--d:320ms;">
       <a
         href="#cotizar"
         class="cta-pulse inline-flex items-center gap-2.5 text-white font-bold rounded-full bg-gradient-to-r from-blue-600 to-blue-500 transition-all hover:brightness-110 hover:scale-[1.02]"
-        style="font-size:0.875rem;letter-spacing:0.06em;padding:0.875rem 2rem;box-shadow:0 0 40px rgba(37,99,235,0.45),0 4px 20px rgba(0,0,0,0.4);"
+        style="font-size:0.9375rem;letter-spacing:0.08em;padding:0.9rem 2.25rem;box-shadow:0 0 40px rgba(37,99,235,0.45),0 4px 20px rgba(0,0,0,0.4);"
       >
-        COTIZAR MI FLETE AHORA
+        Cotizar
         <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
         </svg>
@@ -207,7 +217,7 @@ const links = [
       class="hero-el"
       style="--d:460ms;display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem 1.25rem;margin-top:2rem;padding-top:1.75rem;border-top:1px solid rgba(255,255,255,0.08);"
     >
-      {['+15 Años de Experiencia','Cobertura Nacional','Seguro de Carga Activo'].map(label => (
+      {['Choferes Certificados','Cobertura Nacional','Seguro de Carga Activo'].map(label => (
         <div style="display:flex;align-items:center;gap:0.5rem;">
           <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <circle cx="10" cy="10" r="9" stroke="#1a5fb8" stroke-width="1.5"/>

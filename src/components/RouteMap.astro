@@ -1,7 +1,7 @@
 ---
 // RouteMap.astro — Animated Mexico route network for Hero left panel
 // Official Mexico state paths from simplemaps.com html5countrymapv4.5
-// viewBox: 90 20 880 610 (covers full Mexico territory)
+// Routes use angular L-commands only (road-like zigzag, not curves)
 ---
 
 <div class="route-map-wrap" aria-hidden="true">
@@ -22,16 +22,7 @@
       </filter>
     </defs>
 
-    <!--
-      MEXICO — Official state paths (simplemaps.com html5countrymapv4.5)
-      Rendered as subtle watermark behind route animations.
-    -->
-    <g
-      fill="rgba(92,159,224,0.06)"
-      stroke="rgba(92,159,224,0.20)"
-      stroke-width="0.5"
-      stroke-linejoin="round"
-    >
+    <g fill="rgba(92,159,224,0.06)" stroke="rgba(92,159,224,0.20)" stroke-width="0.5" stroke-linejoin="round">
     <path id="MXSIN" d="M319.2 268.2l0.4 0.2 0.6 0.8 0.3 0.3-0.5 0.4-0.9-0.5-1-0.6-0.8-0.4-0.2 0-0.3-0.1-0.2-0.1-0.3 0-1.7 0-0.4-0.2-0.2-0.4 3.2 0 0.6 0.1 1.4 0.5z m-8.8-28.9l0.3-0.5 0.2-0.2 0.1-0.1 0.2-0.1 0.2-0.2 2.9-2.2 2.9-2.3 2.8-2.3 2.8-2.4 1.4-1.2 1.5-1.2 1.4-1.2 1.4-1.2 0.2-0.4 0.1-0.7 0-0.8 0-0.6 0.2-0.8 0.2-0.8 0.3-0.8 0.2-0.8 0.8-0.7 0.6-0.8 0.7-0.8 0.6-0.8 0.3 0.6 0.7 0.2 0.7 0 0.7-0.1 0.6 0.1 0.4 0.3 0.4 0.5 0.3 0.6 0.9 1.2 1.4 0.7 1.6 0.3 1.4 0.3 0.7 0.3 0.2 0.7 0 0.9 0 0.8 0.4 1 0.7 1 0.6 0.9 0.6 0.9 0.6 0.7 0.6 0.7 0.6 0.6 0.5 0.6 0.5 1.5 0.3 1.9 0.1 2 0.2 1.7 0.2 1.5 0.1 1.4 0.2 1.5 0.2 1.4 0.2 0.9 0.2 0.5 0.5 0.2 0.9 0.2 0.3 0 0.3 0.1 0.3 0.1 0.3 0 2 0.4 1.9 0.5 2 0.4 1.9 0.4 0.9 0.2 0.6 0.5 0.5 0.8 0.3 0.9 0.1 0.5 0.1 0.5 0.1 0.5 0.1 0.5 0.1 0.2 0 0.3 0.1 0.2 0 0.1 0.3 0.3 0.4 0.1 0.3 0.1 0.2 0.4 0.1 0.4 0.1 0.5 0.1 0.4 0 0.4 0.1 0.5 0.1 0.2 0.3 0.1 0.4 0.1 0.8 0.4 0.8 0.5 0.7 0.5 0.7 0.6 0.5 0.7 0.4 0.7 0.5 0.7 0.6 0.5 0.9 0.5 0.9 0.5 0.8 0.6 0.8 0.7-0.4 0.5-0.5 0.5-0.5 0.5-0.3 0.6-0.3 0.7-0.5 0.5-0.5 0.5-0.6 0.6-0.6 1.2-0.3 1.4-0.3 1.5-0.2 1.3-0.2 1.5-0.2 1.5 0 1.5 0.3 1.5 0.4 1.3 0.4 1.3 0.4 1.4 0.5 1.3 0.2 0.5 0.1 0.7 0.3 0.6 0.3 0.4 0.4 0.3 0.5 0.2 0.5 0.1 0.4 0.3 0.2 0.4 0.1 0.4 0 0.4 0 0.4 0.2 0.6 0.4 0.3 0.4 0.1 0.5 0.1 0.5 0 0.4 0 0.4 0.1 0.4 0.3 0.3 0.6 0.2 0.5 0.4 0.4 0.5 0.3 1 0.6 0.6 1 0.4 1.2 0.6 1.1 0.4 0.4 0.4 0.3 0.2 0.4 0.3 0.5 0.1 0.4 0.2 0.4 0.2 0.4 0.2 0.3 0.3 0.6 0.2 0.5 0.1 0.5 0 0.7 0 0.5 0 0.5 0.1 0.5 0.3 0.4 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.4 0.6 0.4 0.4 0.2 0.5 0.1 0.6-0.1 0.5 0 0.4 0 0.5 0 0.5-0.2 0.3-0.4 0.3-0.4 0.3-0.5 0.4-0.4 0.9-0.8 1.1-0.5 1-0.2 1.2 0.2 0.3 0.2 0.4 0.1 0.3 0.3 0.2 0.2 0.8 0.6 0.7 0.7 0.7 0.6 0.7 0.7 0.5 0.7 0.4 0.9 0.4 1 0.3 0.8 0.3 0.8 0.3 0.8 0.4 0.8 0.4 0.8 0.5 0.5 0.6 0.2 0.7-0.2 0.7-0.2-0.3 1-0.4 1-0.5 0.9-0.4 1-0.1 1.2 0 1.2 0.2 1.3 0.2 1.2 0.1 0.6 0 0.5 0.1 0.5 0.1 0.6 0.1 0.5 0.3 0.5 0.3 0.5 0.2 0.6 0.2 0.7 0.1 0.7 0.3 0.6 0.5 0.5 0.4 0.2 0.5 0.1 0.4 0.1 0.5 0.1 0.1 0.7 0.5 0.6 0.5 0.7 0.3 0.7-0.1 0.3-0.1 0.2 0 0.3 0.2 0.2 0.2 0.3 0.1 0.3 0 0.3-0.1 0.3-0.1 0.5 0.1 0.3 0.2 0.4 0.3 0.4 0.1 0.3 0 0.4-0.1 0.4 0.1 0.3 0.3 0.5 0.4 0.3 0.4 0.2 0.4 0.4 0.2 0.2 0 0.3 0.2 0.3 0.2 0.2 0.4 0.3 0.5 0.5 0.5 0.6 0.4 0.4 1 0.5 1.2 0.1 1.2-0.1 1.2-0.1 0 0.9 0 0.9 0 0.9 0.1 0.9-0.7 0-0.7 0.1-0.4 0.3-0.4 0.5-0.2 0.6 0 0.4 0.1 0.4 0.2 0.5 0.3 0.4 0.1 0.3 0.1 0.3-0.3 0.4-0.3 0.4-0.6 0.4-0.5 0.4-0.5 0.4-0.5 0.5-0.5 0.6-0.5 0.7-0.1 0.6 0 0.3 0.2 0.3 0.2 0.1 0.3 0.2 0.3 0.2 0.2 0.2 0.1 0.3 0.2 0.4 0.2 0.3 0.3 0.1 0.3 0.1 0.3 0.2 0 0.2-0.1 0.2-0.1 0.3 0 0.1 0.1 0.1 0.2 0.1 0.1 0.1 0.2 0 0.2 0.8 0.3 0.7 0.2 0.8 0.1 0.8 0 1.1-0.6 0.6-1 0.2-1-0.3-0.4-0.4-0.4-0.4-0.4-0.3-0.4-0.3-0.7-0.2-0.6 0.2-0.6 0.1-0.6 0.2 0.1 0.5 0.2 0.6 0.1 0.6 0 0.5-0.5 0.4-0.5-0.5-0.4-0.8-0.4-0.5 0.3-0.2-0.2-0.4-0.3-0.4-0.3-0.2-0.2 0.4-0.2 0-0.3-1.8-0.9-1.5-2.4-2.3-1.2-1.6-0.5-0.5-1.2-0.8-0.2-0.2-0.1-0.1-0.1-0.1-0.1-0.1-0.1-0.2 0.6-0.8-0.4 0-0.4 0.2-0.3 0.3-0.3 0.3-5.4-6.9-0.2-0.2-0.6-0.2-0.3-0.2-0.5-0.4-2.7-3.2-0.5-0.2-0.4 0.1-0.2 0.2-0.3 0.1-0.3-0.2-0.1-0.2 0.1-1.2-0.2-0.4-1-1.6-0.5-0.4 0-0.2 0.3-0.3 0-0.2-0.1-0.1-0.1-0.2-1.1-2.1-0.4-0.4-0.4-0.1-0.6-0.4-1.1-1.1-0.2-0.1-0.1-0.2-0.3-0.8-0.3-0.4-0.7-0.3-0.4-0.6-0.7-0.9-0.8-1-0.5-0.4-1.2-0.4-0.4-0.6-0.2-1.5-0.4-0.6-0.5-0.5-0.5-0.6-0.3-1.4-0.9-1.5-3.8-4.2-1.4-1.1-0.6-0.2-0.3-0.2-1.6-1.5-4.1-2.8-1.8-1.3-0.3-0.4-0.2-0.7-0.3-0.4-1.1-0.5-1.1-0.7-1.8-1.7-6.6-4.1-0.5-0.6-0.2-0.5 0-0.4 0.2 0 0.3 0.2 0.2 0.2 0 0.1 0.1 0.2 0 0.3 0 0.1 2.3 1.2 0.3 0.1 4 2.6 0.4 0.2 0.3 0.2 0.5 0.3-0.3-0.3-0.8-0.5-0.5-0.3 0.1-0.3 0.6 0.2 0.9 0.7 0.1-0.1 0.1-0.2 0-0.1-0.1 0-0.2 0-0.1 0 0.3-0.3 0.3-0.3 0.2-0.3 0-0.6-0.1-0.4-1.1-2.5-0.3-0.4-0.5-0.2-0.5 0-0.4 0.1-0.4 0.2-0.3 0.4 0.4 0.1 0.8-0.3 0.2 0.2-0.1 0.3-0.8 0.7-0.2 0.3-0.9 0.3-0.5-0.4-0.4-0.6-0.6-0.4-0.6 0.4-0.2 0-0.2 0-0.2-0.1-0.6-0.5-0.2-0.3 0-0.2-0.1-0.4-0.1-0.2-0.1-0.2-0.5-0.1-0.2-0.1-1.1-1.3-0.4-0.1-0.4 0.3-0.6-0.6-0.6-0.5-0.7-0.3-0.7-0.1 0.1 0.3 0.3 0.2 0.4 0.3 0.9 1 0.5 0.4 1.2 0.7 0.4 0.5-0.8-0.2-2.2-1.3-2.5-2.2-0.2-0.5-0.1-0.5-0.2-1.1-0.1-0.5-0.3-0.6-0.3-0.5-0.3-0.2-0.2-0.1-0.1-0.2 0-0.2 0.1-0.1 0.3 0 0.3 0.1 0.5 0.3 0.2 0.3 0.5 0.3 0.4 0 0.2-0.7-0.1-0.5-0.3-0.6-0.4-0.4-0.4-0.3 0.4-0.3 0-0.5-0.2-1.2 0.1-0.5 0.1-0.4 0.4-0.8-0.3-0.4-1.1-1-0.4-0.1 0 0.6 0.4 1.7 0 0.1 0.1 0.2 0 0.4-0.2 1.1-0.1 1.1-0.1 0.3-0.1 0.1-0.2 0-0.2 0-0.1-0.1-0.1-0.2-0.2-0.1-0.1 0.1-0.1 0.2-0.1 0.1-1.1-0.6-0.9-1.3-2.2-4.6-0.7-0.8-1-0.9-0.6-0.3-0.2-0.2-0.2-0.4 0.6 0 0.7 0.2 0.5 0.3 0.2 0.5 1.7 2.1 0.4 0.9 0 0.1 0.2 0 0.2 0 0.1-0.1 0.1-0.1 0.6 0.4 0.1 0.1 0.3-0.1 0-0.3 0-0.6-0.1-0.5-0.3 0-0.3 0.1-0.3-0.2 0-0.2 0.3-0.5 0.1-0.2 0.3-0.2 0.1-0.1 0.1 0.1 0.2 0.4 0.6 0.6 0.5 0.2 1.2 0.2 0.9 0.4 0.3-0.3 0.1-0.3-0.1-0.4-3-2.7-0.3-0.2-0.5 0 0.2 0.2 0 0.2-0.2 0.2-0.4 0-0.3 0-0.4-0.3-0.5-0.5-0.6-1.2-0.1-0.2-0.4 0.1-0.3 0.2-0.3 0.2-0.4-0.2-0.4 0.2-0.8 0.1-0.8-0.2-0.5-0.2-0.1-1 0-0.2 0.2 0 0.7 0.5 0.3 0.1-0.1-0.4 0-0.9-0.1-0.4-0.2-0.3-0.7-0.4-0.3-0.2-0.7 3.4-0.4 0.5 0-0.3 0.1-1.4 0-0.5-0.2-0.6-0.4-0.5-0.5-0.3-0.4-0.3-3-1.2-1.7-1.2-1.2-0.3-1.2-0.1-1 0 0.7-0.5 1.2 0.1 2.1 0.6-0.7-0.3-1.2-1-0.8-0.2-1.5 0.5-0.8 0.1-0.4-0.6 1.2 0 0.3-0.2-0.4-0.6-0.1-0.2 0-0.3 0-0.2-0.3 0-0.1 0-0.3 0.3-0.3 0.1 0.3-1 0.1-0.5 0-1.5-0.1-0.4-0.1-0.1-0.3 0.2-0.3 0-1-0.4 0-0.1 0-0.1-0.1-0.2-0.2-0.1-0.1 0.1-0.3 0.1-0.1 0.1-0.6-0.1-0.3-0.1-0.2 0 0 0.6 0.1 0.3 0.1 0.2 0.1 0.2 0.1 0.4-0.1 0.4-0.1 0.2-0.1 0.2-0.2 0.2-0.5 0.3-0.4 0-0.3-0.2-0.3-0.4 0.1 0 0.2-0.1 0.1-0.2-0.2-0.2-0.2-0.1-1.5 0.2-0.4 0.2 0 0.3 0.3 0.5-0.8 0.1-0.9-0.7-1.4-1.6 0.6-0.3 0.2-0.1 0.1-0.3 0.2-0.4 0.2-0.3 0.3-0.1 1 0.3 0.2 0 0.3-0.1 0.3 0.3 0.1 0.6 0.3 0.2 0.1-0.1 0-0.2 0.2-0.4 0-0.1 0-0.4 0-0.1 0.1-0.2 0.3 0 1.5-1.6 0.3-0.4 0-0.2-0.1-0.1 0-0.1 0.1-0.2 0.1-0.1 0.1-0.1 0.2 0 0-0.2 0-1 0.2-0.7 1.2-1 0.1-0.7-0.2-0.4-0.4 0.3-0.6 1.3-0.4 0.7-0.5 1-0.4 0.4-0.7 0.3-1.4 0.5-0.6 0.4-0.9 1.4-0.6 0.5-0.7-0.2-0.8 0.4-0.5 0-0.3-0.3-0.4-0.8-0.2-0.7-0.2-0.3-0.3-0.1-0.3-0.1-0.9-0.4-0.8-0.6-0.1 0.2 0.1 0.3 0.1 0.4 0.3 0.3 1.9 1.6 0.5 0.7-0.1 0.7-0.7-0.7-0.6-0.8-0.7-0.8-1-0.4-3.2 0.1-1.1-0.3 0.7-0.5 0.8-0.2 0.8 0 0.9 0.3-0.1-0.5 0.1-0.6 0.1-0.1 0.2-0.3 0.1-0.1-0.1-0.2 0-0.1-0.1-0.1 0-0.1-0.3-0.3-0.5-0.4-0.7-0.4-0.4-0.1-0.6 0-0.3 0.2-0.1 0.4-0.1 1.9-0.1 0.2-0.3-0.5 0.2-0.6 0-0.8-0.1-0.7-0.2-0.3-0.6-0.2-0.1-0.6 0.1-0.6 0.3-1.3 0.1-0.2 0.1-0.1 0-0.6 0-0.4-0.1-0.3-0.3-0.5-0.2-0.7 0-0.6 0-1.4 0.2-0.6 1-1.7 1.1-1.2 0.5-0.7 0.3-1.3 1.1-1.9 0-0.1 0.1 0 0.1 0 0.1-0.1 0 0.1-0.2 0.4 0.1 0.7-0.1 0.3-0.1 0.4-0.1 0.3 0.2 0.3 0.3 0.1 0.2-0.2 0.1-0.4 0.2-1 0.9-1.7 0.1-0.1 0.6-0.3 0.6-0.4 0.5-0.4 0.3-0.2 0 0.5-0.2 0.5-0.4 0.2 0 0.2 0.6 0.3 1.4 1.2 0.4 0.1 0-0.4-0.4-0.7 0-0.5 0.2-0.2 0.3-0.1 0.2-0.1-0.1-0.5-0.8 0.1-0.7-1.4z"/>
     <path id="MXSON" d="M147.3 35.9l0.1 0 1.1 0.4 11.7 4.3 11.8 4.3 11.7 4.3 11.8 4.3 11.7 4.3 11.8 4.2 11.7 4.3 11.8 4.3 1.4 0.5 1.5 0.6 1.5 0.5 1.5 0.6 1.4 0.6 1.5 0.5 1.5 0.6 1.5 0.5 0.8 0.3 1.7 0.2 1.7 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 1.2 0 1.3 0 1.2 0 1.2 0 0.6 0 0.6 0 1.3 0 0.4 0-0.3 2.7-0.4 2.9-0.3 2.8-0.4 2.9-0.1 1-0.2 1.1-0.1 1-0.1 1.1-0.2 0.7 0 0.6 0 0.4 0.4 0.5 1.7 1.4 1.6 1.3 1.6 1.4 1.7 1.4 0.4 0.3 0.6 0.3 0.5 0.2 0.6 0.1 0.9 0.3 0.7 0.4 0.7 0.5 0.7 0.7 0.6 0.5 0.3 0.4 0.2 0.6 0.1 0.8 0 1 0.1 1.1 0.1 1 0.1 1 0 0.4 0.1 0.3 0 0.3 0 0.3 0.2 2.1 0.2 2.1 0.1 2.1 0.2 2.1 0.1 0.5 0 0.5-0.1 0.4-0.2 0.4-0.2 0.5-0.2 0.5 0 0.6 0 0.7 0 0.1 0 0.1-0.1 0.7-0.1 0.7 0 0.7-0.1 0.6-0.2 2.7-0.2 2.7-0.2 2.6-0.2 2.7-0.1 0.8-0.1 0.8 0 0.7-0.1 0.8 0 0.6-0.1 0.4-0.2 0.2-0.5 0-0.5 0-0.5 0-0.5 0-0.5 0 0.2 1.7 0.2 1.6 0.1 1.6 0.2 1.7 0.2 1.8 0.3 1.8 0.2 1.8 0.2 1.9 0.1 1.3 0.2 1.4 0.2 1.3 0.1 1.3 0.1 0.4 0 0.4 0 0.4 0.1 0.3 0.1 0.3 0.2 0.3 0.1 0.4-0.1 0.3-0.2 0.9-0.4 1.2-0.3 1.1 0 0.9 0.3 0.9 0.3 1 0.3 1 0.3 1 0.3 0.6 0.2 0.7 0.3 0.7 0.2 0.7 0.2 0.6 0.4 0.9 0.2 0.8 0 0.5-0.6 0.6-0.6 0.6-0.6 0.6-0.7 0.6-0.4 0.2-0.5 0-0.5-0.2-0.4-0.1-1-0.3-1-0.2-1-0.3-1-0.2-1.5-0.3-1.3-0.1-1.4 0-1.5 0.1-0.7 0.2-0.5 0.2-0.5 0.4-0.5 0.5-0.6 0.5-0.5 0.5-0.3 0.6 0.2 0.7 0.9 2.2 0.9 2.2 0.9 2.2 0.9 2.2 0.2 0.4 0.4 0.3 0.3 0.3 0.4 0.2 0.5 0.3 0.5 0.3 0.5 0.2 0.5 0.3 0.3 0.6 0.2 0.7 0.1 0.7 0.4 0.6 0.8 0.6 0.8 0.7 0.7 0.7 0.8 0.6-0.3 0.4-0.1 0.4-0.1 0.5 0.1 0.5 0.6 0.7 0.6 0.6 0.6 0.6 0.8 0.5 0.5 0.3 0.3 0.4 0.1 0.5 0.1 0.6 0 0.7-0.1 0.6-0.2 0.7-0.1 0.6 0 0.6 0.2 0.5 0.3 0.6 0.2 0.5 0.1 0.9-0.3 0.7-0.5 0.6-0.5 0.7-0.2 0.8 0.1 0.8 0.3 0.6 0.4 0.7 0.6 1 0.6 1 0.7 1 0.6 0.9 0.4 0.4 0.3 0.2 0.4 0 0.5-0.1 0.3 0 0.2-0.1 0.2 0 0.2 0.2 0.1 0.4 0.2 0.3 0.1 0.4 0.2 0.3-0.2 0.8-0.3 0.8-0.2 0.8-0.2 0.8 0 0.6 0 0.8-0.1 0.7-0.2 0.4-1.4 1.2-1.4 1.2-1.5 1.2-1.4 1.2-2.8 2.4-2.8 2.3-2.9 2.3-2.9 2.2-0.2 0.2-0.2 0.1-0.1 0.1-0.2 0.2-0.3 0.5-0.5-1-0.8-0.5 0.1 0.1 0.1 0.2 0.1 0.1 0.1 0.3-0.6-0.2-0.3-0.1-0.3 0.1-0.8 0.9-0.3 0-0.1-0.4 0.4-2.3-0.1-1.3-0.3-1.2-0.7-0.8-1-1.5-1.3-0.9-0.8-1.3-0.9-0.8-0.8-0.3-0.8-0.1-0.3-0.2 0.4-0.1 0.5 0.2 0.7 0.2-0.2-0.6-0.2-0.1 0.2-0.3-0.2-0.4-0.5 0-0.4-0.1-0.2-0.3-0.1-0.5-0.3 0.2-0.3 0.3-0.2-0.6-0.5-0.1-0.3 0.4-0.3 0.3-0.1 0.4 0.3 0.1 0.3 0.1 0.3 0 0.1 0.2-0.1 0.2 0 0.3 0.5 0.3 0.3 0.1 0 0.2-1-0.5-2.2-0.4-1.2 0.1-0.4 0.3-0.1 0.3-0.8-0.1-0.9-0.4-1.3-0.5-0.4-0.4-1.4-1.5-0.7-1.1-0.2-1.2-0.2-1.1-0.4-0.7-0.4-1-0.1-0.4-0.3-0.5-0.9-1.5 0.1-0.3 0.2 0.4 0.8 1.3 0.6 0.5-0.7-1.8 0-0.7-0.2-1.4-1-1.2-0.4-0.4-0.5-0.2-0.5-0.1-0.5 0-0.2 0.1-0.2 0.1-0.2 0.2-0.2 0.2-0.2 0.3-0.3 0.3-0.8-0.7-1.7-0.5-1.2-0.3-0.7-0.2-0.7-0.1-0.7-0.2-0.7-0.1-0.9-0.6-0.5-0.2-1-1.2-0.9-1.2-1.3-0.9-0.4-0.3-1.1-0.2-0.6 0-0.1-0.3 0.9 0 0.8 0.1 0.8 0.1 0.4-0.3-0.6-0.5-0.7-0.9-0.3-0.4 0.1-0.2 0.1-0.2 0-0.2-0.4-0.2-0.1-0.1-0.2-0.2-0.6 0.4-0.3 0.2-0.3 0-0.3-0.1-0.1-0.3 0-0.8-0.1-0.8-0.9-0.5 0-2-0.3-1-0.8-2.1 0-1.1 0.3-0.5 0.5-0.2 0.6-0.1 0.3-0.5-0.1-0.5-0.3-0.1-0.4 0.2-0.2 0.4 0.2-1 0.2-0.3 0.4-0.2 0.3 0 0.3-0.1 0.2-0.4-1 0-0.5-0.3-0.1-0.4 0.4-0.8-0.4-0.1-0.3-0.2-0.1-0.4 0.2-0.4 0.2 0.3 0.2 0.1 0.1-0.2 0.2-0.6 0.1-0.1 0.3 0.1 1.4-0.3 0.4-0.3-0.1-0.6-0.6 0.2-1.7-0.7-0.7 0.1 0.4 0.3-0.2 0.2-0.4-0.1-0.9-0.6-0.5-0.2-2-0.5-1-0.1-1 0.1-1.1 0.2 0-0.2 0.3-0.1 0.9-0.4-0.2-0.4-0.1-0.3-0.1-0.3 0-0.4-0.1-0.4-0.4-0.2-0.3 0-0.2 0.4 0 0.9-0.1 0.5-0.3 0.5-0.6 0.6 0.5 0 0.2 0.1 0.1 0.3 0 0.4-0.1 0.4-0.3 0.6-0.2 0.2-0.2-0.3-0.1-0.1-0.7-0.9-0.1-0.1-0.5 0-0.2-0.1-0.1-0.2-0.1-0.2-0.1-0.1-0.2-0.2 0.3-0.3 0.2-0.1 0.3 0-0.5-0.5-0.6-0.6-0.7-0.3-0.6 0-0.6 0.2-0.5 0.6-0.8 0.1-0.5 0 0.1-0.3 0.2-0.2-0.3-0.4-0.4-0.2-0.3 0-0.4-0.5-0.8-0.2-0.4-0.5-0.4-0.5-0.6-0.8-0.9-0.2-0.4-0.7-0.5-0.6-0.5-1.2-1-1-0.2-1.5-0.2-0.3-0.1-0.1-0.4 0.1-0.2-0.1-0.1-0.1 0-0.2-0.3-0.5-0.1-0.7-0.1-0.3-1.3-1.2-0.4-0.5-0.2-0.7 0.2-0.4 0.3-0.3 0.1-0.6-1 0.2-1.2-0.4-2-0.7-1.9-1-0.7-0.2-0.6-0.2-0.3-0.1-0.5-1.3-0.5-1.3-0.5-1.4-4.6-4.5-0.6-0.9-0.3-0.3 0.2-0.2 0.3 0 0.3-0.2 0.6-0.4 0.2 0 0.2 0.3 0.2 0.4 0.1 0.2 0.3 0.1 0.2-0.1 0.1-0.3 0-0.4 0-0.3-0.3-0.6-0.5 0-0.5 0.1-0.7-0.1-0.8-0.7-0.4-0.6-1-0.4-0.8-0.2-0.1-0.7-0.4-0.1 0-0.4-0.4-0.4-0.6-0.5-0.2-0.5-0.3-0.4-0.1-0.2-0.3-0.1-0.4-0.1-0.6 0-0.5-0.1-0.1-0.2 0.3-0.2 0.2-0.3-0.1-0.3 0-0.3-0.4-1.3-0.1-0.8-0.4-0.1 0.1-0.3 0.3-0.5 0.2-0.4 0-0.3-0.3-0.7-0.5-0.6 0.1-0.3-0.5-0.4-0.5-0.3 0.4-1.3 0-0.8-0.4-0.9-0.4-1.1-0.7-0.5-1.4 0-0.3 0.1-0.2 0.2-0.1 0.1 0.1 0.3-0.1 0.4-0.2-0.2-0.5-0.6-1-0.4-0.5-0.4-0.3-1 0.4-1 0.6-1.3 0.2-0.6 0-0.8-0.2-0.4-0.6-0.1-0.4-0.3-0.3-0.3 0.1-0.7-0.1-0.6-1-0.9-1.1-1-0.8-1.9-0.1-0.4-0.2-0.4-0.5 0.1-0.6-0.7-0.2-0.5-0.2-1.3-0.4-0.7-0.5-0.6-0.3-0.5-0.6-1.9-0.3-0.5-0.5-0.3-0.2 0.1-0.5-0.2-0.6 0.3-0.4-0.3-0.2-0.5 0.4-0.5-0.2-0.6 0.3-1 0.1-0.8-0.2-0.5-0.3-0.4-0.3-0.6 0-0.6 0.2-1.8 0-1.8-0.4-0.9-0.4-0.6-0.5-0.5-0.3-0.4-0.6-0.4-0.2 0-0.3-0.1-0.3 0.3-0.1-0.2 0.3-0.6 0.1-1.1-0.1-1.4-0.2-1.3-0.4-0.9-1.3-1.5-2-2-1.6-2.5-1.1-2.1-1-3.7-0.4-1 0.5-1 0.3-2.2 0.1-1.3-0.1-1.1-0.9-2.4 0-0.5 0.2 0 0.2 0.3 0.1 0.4 0.3 0.7 0.4 1.1 0.2 0.1 0.2-0.3 0.6-1.1 0-1.6 0-1.5 0.2-1.1-0.6-0.6-0.7-1-0.7-0.5-0.8 0 0 0.3 0.5 0.2 0.3 0.2-0.1 0.3-0.5-0.2-0.5-0.3-1.2-0.7-0.3-0.8-0.4-0.4-0.3-0.9-0.4 0-0.4 0.2-0.4 0.1 0.3 0.5 0.3 0.2 0.4 0.2 0.3 0.2-0.4 0.1-1-0.3-4.5-0.8-1.4-0.4-1.9-0.3-0.3-0.7-0.7-0.2-1.1-0.1-0.6-0.5 0.2-0.2 0.5 0 0.3-0.2-0.3-1-0.5-1.8 0.1-1-0.8-1.1-1.5-1.1-1.3-0.6-0.5-0.5-0.8 0-1.3-0.7-0.8-0.4-0.2-0.6-0.8 0.3-0.4 0.1-0.4 0-0.5-0.5-0.2-1.3-0.4-0.3-0.1 0.5 0 1.8 0 0.3 0.2 0.3 0.2 0 0.2 0 0-0.1 0.3 0.4-0.1 0.1-0.3 0.1-0.4 0.6-0.1 0.4-0.3 0.2-0.4 0.1-0.1 0.3-0.2 0.2-0.1 0.2-0.3 0.4-1.2 0-1.3 0-1.2-0.1-1.4-0.6-0.7-0.6-0.8-0.3-0.8-0.4-0.3-0.3-0.4-0.5-0.4-0.2 0-0.5-1-0.4-1.5-0.9-0.5-0.4-0.5-0.1-0.4-0.6-0.9-0.3-1.4-1.4-1.2-1.5-0.6-0.1-2.1 0-0.2 0-0.3-0.2-0.5-0.6-0.1-0.1-0.3-0.1-0.6-0.5-0.3-0.1-1-0.1-0.3-0.1-0.4-0.4-0.7-1.1-0.4-0.2-0.6-0.1-1.6-1.3-0.1-0.7 0-0.8 0-0.8 0.1-0.9 0-0.5-0.1-0.4-0.2-0.4-0.2-0.4-0.2-0.2-0.3-0.2-0.2-0.1-0.1-0.2-0.1-0.5 0.3-0.5 0.3-0.5 0.1-0.7-0.3-1.4-0.5-1-0.6-1-0.8-1-0.2-0.2 0.1-0.5 0.5-0.7 0.6-0.4 0.5-0.6 0.3-0.8 0-0.6 0-0.6 0.1-0.6 0.2-0.7 0.4-0.9 0.6-0.6 0.6-0.3 1.5 0.1 0.6-0.1 0.3-0.3z m137.1 179.1l0.2 0 0.6 0.2 0.9 0.4 0.8 0.6 0.6 1-0.2 0-0.7-0.9-0.7-0.5-0.7-0.4-0.5-0.1-0.3-0.3z m-16-7.4l-0.1-1.3 0-0.8 0.2-0.7 0.2-0.4-0.2 1.3 0.1 1.4 0.6 0.6 1.3 0.5-0.1 0.5-1.6-0.6-0.4-0.5z m-48-47.2l-0.4 0.2-0.6 0.5-0.5-0.5-0.5-0.1-0.4 0.2-0.3-0.4-0.4-0.1-0.5-0.6-0.4-0.2-0.3 0.1-0.3-0.2-0.6 0.1-0.3-0.2 0-0.5-0.8-0.1-0.1-0.3-0.7-0.4-0.8-0.4-0.4-0.4-0.3 0-0.3-0.2 0.8-0.5 0.9-0.6 0.4-0.6 0.2-0.1 0.1-0.3 0.2-0.4 0.1-0.2 0.1-0.4-0.1-0.4-0.3-0.3-0.1-1.3 0.1-1.5 0.3-1.3 0.3-1.3 0.2-0.4 0.2-0.5 0.4-0.3 0.4-0.3 0.5 0.4 0.6 0 0.6-0.5 0.5-0.4 0.5-0.1 0.8 0 0.5-0.1 0.3-0.3 0.3-0.3 0.4-0.2-0.1 0.3-0.4 0.4 0.1 0.6 0.4 0.3 0 0.2-0.1 0.3 0 0.3-0.2 0.3 0.2 0.4-0.1 0.5 1 1.4 1.2 2.4-0.5 1.2-0.1 1-0.4 1.7-0.4 0.4 0.2 0.5-0.5 0.6-0.2 0.7-0.3 0.4-0.1 0.6 0.1 0.7 0.3 0.1 0.2 0.4-0.3 0.2-0.3-0.2z m-72.1-100.9l0.9 0.2 1.3 1.1 1.1 1.5 0.5 1-0.4 0-0.3-0.1-0.3-0.3-0.1-0.3-0.7 0.6-1.3-0.7-1-1.4 0.3-1.6z m159.5 182l0.1-0.6 0-1.7 0.3-0.3 0.6 0 0.5 0.2 0.4 0.2 0.2 0.6 0 0.2-0.3 0.2-0.5 0.4-0.6 0.4-0.6 0.3-0.1 0.1z m-1.8 0.9l0.1-0.3 0.6-1 0.1-0.6 0.1-0.3 0.2 0.1 0.1 0.4-0.3 0.7-0.2 0.1-0.2 0.3-0.1 0.2-0.1 0.2-0.1 0.1-0.1 0-0.1 0 0 0.1z m-60.2-55.9l-0.2-0.3 0.3-0.3 0.4 0.6 0.2 0.5-0.5-0.1-0.2-0.4z"/>
     <path id="MXAGU" d="M519.8 375.1l-0.1 0.1-0.1 0.1 0 0.1-0.1 0.1-0.5 0.9-0.5 0.6-0.7 0.5-0.9 0.3-0.6 0.3-0.4 0.5-0.5 0.5-0.8 0.3-0.7 0.4-0.2 0.7-0.1 0.8-0.2 0.9-0.3 0.6-0.6 0.3-0.6 0.2-0.7 0.3-0.7 0.5-0.5 0.6-0.6 0.5-0.7 0.4-0.8 0.2-0.8 0.1-0.8-0.1-0.8-0.1-0.9-0.2-0.9-0.1-0.9-0.2-0.9-0.1-1.3-0.4-1.1-0.6-1.1-0.8-1.1-0.6-0.9-0.2-1 0.2-1 0.4-0.9 0.3-1-0.6-0.8-0.6-0.7-0.7-0.2-1.2 0-0.7 0-0.6 0.2-0.6 0.2-0.7 0.3-0.5 0.4-0.6 0.4-0.5 0.4-0.6 0.4-0.7 0.4-0.8 0.5-0.8 0.5-0.6 0.6-0.6 0.6-0.7 0.5-0.7 0.4-0.7 0.2-0.8-0.4-0.6-0.4-0.4-0.1-0.5 0.7-1 0.9-0.4 1.1-0.1 1.1 0 0.4 0.1 0.6 0 0.5-0.1 0.4-0.2 0.2-0.3 0.1-0.4 0.1-0.4 0.3-0.3 0.1-0.1 0.1 0 0.1 0 0.3 0 0.3 0 0.3 0.1 0.2-0.1 0.4-0.3 0.2-0.3 0.2-0.3 0.4-0.2 0.5 0.1 0.5-0.4 0.3-0.6 0.3-0.6 0.5-0.6 0.5 0.3 0.3 0.7 0.3 0.7 0.3 0.6 0.4 0.7 0.5 0.5 0.6-0.2 0.1-0.2 0.2-0.1 0.2-0.1 0.2 0 0.3 0.3 0.2 0.5 0.1 0.4 0.4 0.4 0.5-0.1 0.3 0.3 0.3 0.3 0.4 0.4 0.6 0.2 0.6 0.1 0.6 0 0.5 0.2 0.3 0.8 0 1.1-0.1 1.1 0 1 0.3 0.7 0.7 0.5 0.8 0.3 0.7 0.4 0.5 0.5 0.4 0.5 0.4 0.6 0.4 0.5z"/>
@@ -68,20 +59,21 @@
 
     <!--
       ═══════════════════════════════════════════
-      ROUTE 1 — CDMX → Veracruz
+      ROUTE 1 — CDMX → Veracruz  (carretera federal 150D)
+      Angular: gira en Puebla hacia la costa
       cycle: 14s, delay: 0s
       ═══════════════════════════════════════════
     -->
     <g class="route-group" style="animation-delay:0s;">
-      <path class="route-line" stroke-dasharray="80"
-        d="M 597,458 Q 631,447 665,435"
-        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round"
+      <path class="route-line" stroke-dasharray="100"
+        d="M 597,458 L 622,452 L 638,444 L 655,438 L 665,435"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         filter="url(#lineGlow)"
       />
       <g transform="translate(597,458)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
@@ -90,8 +82,8 @@
       <g transform="translate(665,435)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="1.4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.4s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="56" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
         <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">VERACRUZ</text>
@@ -100,62 +92,63 @@
 
     <!--
       ═══════════════════════════════════════════
-      ROUTE 2 — CDMX → Puebla → Tlaxcala
+      ROUTE 2 — Corredor Norte: CDMX → QRO → SLP → Monterrey → Nuevo Laredo
+      Carretera 57 hacia la frontera norte
       cycle: 14s, delay: 2.3s
       ═══════════════════════════════════════════
     -->
     <g class="route-group" style="animation-delay:2.3s;">
-      <path class="route-line" stroke-dasharray="55"
-        d="M 597,458 L 633,456 L 625,453"
+      <path class="route-line" stroke-dasharray="310"
+        d="M 597,458 L 578,413 L 562,376 L 547,330 L 547,290 L 558,270 L 570,262 L 578,235 L 584,200"
         fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         filter="url(#lineGlow)"
       />
       <g transform="translate(597,458)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
         <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
       </g>
-      <g transform="translate(633,456)">
-        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
-        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
-        </circle>
-        <rect x="-50" y="8" width="46" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
-        <text x="-48" y="19" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">PUEBLA</text>
-      </g>
-      <g transform="translate(625,453)">
+      <g transform="translate(570,262)">
         <circle r="4" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="4" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="4;15" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="4;14" dur="1.6s" begin="2.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="2.2s" repeatCount="indefinite"/>
         </circle>
-        <rect x="8" y="-18" width="54" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
-        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">TLAXCALA</text>
+        <rect x="8" y="-18" width="60" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">MONTERREY</text>
+      </g>
+      <g transform="translate(584,200)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="3.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3.2s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="-82" y="-18" width="74" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="-80" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">NUEVO LAREDO</text>
       </g>
     </g>
 
     <!--
       ═══════════════════════════════════════════
-      ROUTE 3 — Bajío y Sureste
-      Guadalajara → CDMX → Villahermosa
+      ROUTE 3 — Bajío y Sureste: Guadalajara → CDMX → Villahermosa
+      Corredor industrial + sureste
       cycle: 14s, delay: 4.6s
       ═══════════════════════════════════════════
     -->
     <g class="route-group" style="animation-delay:4.6s;">
       <path class="route-line" stroke-dasharray="360"
-        d="M 469,410 Q 533,434 597,458 Q 692,479 786,499"
-        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round"
+        d="M 469,410 L 510,430 L 548,444 L 597,458 L 638,466 L 690,477 L 740,487 L 786,499"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         filter="url(#lineGlow)"
       />
       <g transform="translate(469,410)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="72" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
@@ -164,8 +157,8 @@
       <g transform="translate(597,458)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="1.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.8s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
         <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
@@ -173,8 +166,8 @@
       <g transform="translate(786,499)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="2.5s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="2.5s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="3.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3.2s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="74" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
         <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">VILLAHERMOSA</text>
@@ -183,48 +176,81 @@
 
     <!--
       ═══════════════════════════════════════════
-      ROUTE 4 — Carga local CDMX – Zona Metropolitana
+      ROUTE 4 — Corredor Pacífico: CDMX → GDL → Mazatlán → Hermosillo → Tijuana
+      Carretera 15 — el corredor más largo del país
       cycle: 14s, delay: 6.9s
       ═══════════════════════════════════════════
     -->
     <g class="route-group" style="animation-delay:6.9s;">
-      <path class="route-line route-line-short" stroke-dasharray="100"
-        d="M 597,458 L 579,463 M 597,458 L 611,451 M 597,458 L 594,475 M 597,458 L 583,445"
-        fill="none" stroke="#5c9fe0" stroke-width="1.5" stroke-linecap="round"
+      <path class="route-line" stroke-dasharray="660"
+        d="M 597,458 L 537,438 L 469,410 L 444,392 L 418,358 L 400,328 L 387,290 L 370,258 L 340,218 L 298,178 L 255,138 L 210,105 L 175,82 L 155,65"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         filter="url(#lineGlow)"
       />
       <g transform="translate(597,458)">
-        <circle r="6" fill="#1a5fb8" filter="url(#nodeGlow)"/>
-        <circle r="6" fill="none" stroke="#5c9fe0" stroke-width="2">
-          <animate attributeName="r" values="6;22" dur="1.4s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.9;0" dur="1.4s" repeatCount="indefinite"/>
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
         </circle>
-        <circle r="6" fill="none" stroke="#5c9fe0" stroke-width="1">
-          <animate attributeName="r" values="6;30" dur="2s" begin="0.3s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.5;0" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(469,410)">
+        <circle r="4" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="4" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="4;14" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
         </circle>
-        <rect x="8" y="-18" width="80" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
-        <text x="10" y="-7" font-size="9" fill="#5c9fe0" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.5">ZMCDMX · LOCAL</text>
+        <rect x="8" y="-18" width="72" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">GUADALAJARA</text>
+      </g>
+      <g transform="translate(387,290)">
+        <circle r="4" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="4" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="4;14" dur="1.6s" begin="2.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="2.8s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="60" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CULIACÁN</text>
+      </g>
+      <g transform="translate(298,178)">
+        <circle r="4" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="4" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="4;14" dur="1.6s" begin="3.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3.8s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="68" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">HERMOSILLO</text>
+      </g>
+      <g transform="translate(155,65)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="4.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="4.8s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="50" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">TIJUANA</text>
       </g>
     </g>
 
     <!--
       ═══════════════════════════════════════════
-      ROUTE 5 — Corredor Nacional Largo
-      Veracruz–Puebla–Tlaxcala–CDMX–Querétaro ··· Campeche–Mérida–Cancún
+      ROUTE 5 — Corredor Peninsular
+      Veracruz → CDMX → Querétaro → Campeche → Mérida → Cancún
       cycle: 14s, delay: 9.2s
       ═══════════════════════════════════════════
     -->
     <g class="route-group" style="animation-delay:9.2s;">
-      <path id="r5" class="route-line" stroke-dasharray="580"
-        d="M 665,435 L 633,456 L 625,453 L 597,458 L 578,413 C 660,418 755,438 838,458 L 889,418 L 930,400"
+      <path id="r5" class="route-line" stroke-dasharray="620"
+        d="M 665,435 L 638,444 L 622,452 L 597,458 L 578,413 L 600,408 L 635,402 L 680,415 L 730,432 L 786,445 L 812,452 L 838,458 L 858,440 L 875,428 L 889,418 L 908,410 L 930,400"
         fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         filter="url(#lineGlow)"
       />
       <g transform="translate(665,435)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="56" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
@@ -233,7 +259,7 @@
       <g transform="translate(578,413)">
         <circle r="4" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="4" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="4;15" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="4;14" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="58" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
@@ -242,8 +268,8 @@
       <g transform="translate(838,458)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="3s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="3.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3.2s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="54" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
         <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CAMPECHE</text>
@@ -251,8 +277,8 @@
       <g transform="translate(889,418)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="3.8s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3.8s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="3.9s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3.9s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="44" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
         <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">MÉRIDA</text>
@@ -260,11 +286,11 @@
       <g transform="translate(930,400)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="4.5s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="4.5s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="4.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="4.6s" repeatCount="indefinite"/>
         </circle>
-        <rect x="-72" y="8" width="64" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
-        <text x="-70" y="19" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">QUINTANA ROO</text>
+        <rect x="-74" y="8" width="66" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="-72" y="19" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">QUINTANA ROO</text>
       </g>
     </g>
 
@@ -272,38 +298,39 @@
       ═══════════════════════════════════════════
       ROUTE 6 — Corredor Interoceánico
       CDMX → Puebla → Oaxaca → Tehuantepec
+      Trazo angular por la sierra
       cycle: 14s, delay: 11.5s
       ═══════════════════════════════════════════
     -->
     <g class="route-group" style="animation-delay:11.5s;">
-      <path class="route-line" stroke-dasharray="200"
-        d="M 597,458 L 633,456 Q 657,488 681,520 Q 701,535 720,550"
-        fill="none" stroke="#00c8ff" stroke-width="2" stroke-linecap="round"
+      <path class="route-line" stroke-dasharray="210"
+        d="M 597,458 L 620,455 L 633,456 L 648,472 L 658,490 L 667,506 L 681,520 L 696,532 L 710,543 L 720,550"
+        fill="none" stroke="#00c8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         filter="url(#lineGlow)"
       />
       <g transform="translate(597,458)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#00c8ff" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
-        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+        <text x="10" y="-7" font-size="9" fill="#00c8ff" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
       </g>
       <g transform="translate(681,520)">
         <circle r="4" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="4" fill="none" stroke="#00c8ff" stroke-width="1.5">
-          <animate attributeName="r" values="4;15" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="4;14" dur="1.6s" begin="1.4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.4s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="42" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
-        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">OAXACA</text>
+        <text x="10" y="-7" font-size="9" fill="#00c8ff" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">OAXACA</text>
       </g>
       <g transform="translate(720,550)">
         <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
         <circle r="5" fill="none" stroke="#00c8ff" stroke-width="1.5">
-          <animate attributeName="r" values="5;18" dur="1.6s" begin="2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="2s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;18" dur="1.6s" begin="2.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="2.2s" repeatCount="indefinite"/>
         </circle>
         <rect x="8" y="-18" width="84" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
         <text x="10" y="-7" font-size="9" fill="#00c8ff" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.4">INTEROCEÁNICO</text>
@@ -321,21 +348,13 @@
     pointer-events: none;
     overflow: hidden;
   }
-
-  /* ── Route group: fade cycle (14s) ── */
-  .route-group {
-    animation: rFade 14s ease-in-out infinite;
-  }
+  .route-group { animation: rFade 14s ease-in-out infinite; }
   @keyframes rFade {
     0%,   6%  { opacity: 0; }
     12%,  76% { opacity: 1; }
     88%, 100% { opacity: 0; }
   }
-
-  /* ── Route line: draw + hold + fade (14s) ── */
-  .route-line {
-    animation: rDraw 14s ease-in-out infinite;
-  }
+  .route-line { animation: rDraw 14s ease-in-out infinite; }
   @keyframes rDraw {
     0%,   8%   { stroke-dashoffset: 700; opacity: 0; }
     14%,  76%  { stroke-dashoffset: 0;   opacity: 1; }
