@@ -148,9 +148,11 @@ const links = [
     <!-- Animated route map -->
     <RouteMap />
 
-    <!-- Vignette: keeps text legible over the map animation -->
+    <!-- Vignette: apaga el mapa en la zona de texto, lo deja vivo en los bordes -->
     <div style="position:absolute;inset:0;z-index:2;pointer-events:none;
-      background:radial-gradient(ellipse at 30% 55%, transparent 35%, rgba(2,11,20,0.55) 80%);">
+      background:
+        linear-gradient(to right, rgba(2,11,20,0.78) 0%, rgba(2,11,20,0.55) 55%, transparent 100%),
+        radial-gradient(ellipse at 30% 55%, transparent 25%, rgba(2,11,20,0.50) 75%);">
     </div>
 
     <!-- Text content above map -->
@@ -231,22 +233,23 @@ const links = [
     </div>{/* end text wrapper */}
   </div>
 
-  <!-- RIGHT: truck photo -->
+  <!-- RIGHT: truck photo (mirrorado — camión apunta hacia el contenido) -->
   <div
     class="hero-right"
-    style={`
-      flex: 0 0 50%;
-      position: relative;
-      overflow: hidden;
-      background-image: url('${TRUCK_IMG}');
-      background-size: cover;
-      background-position: center center;
-    `}
+    style="flex:0 0 50%;position:relative;overflow:hidden;"
   >
-    <!-- Blend edge: fade left side into dark panel -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to right,#020b14 0%,rgba(2,11,20,0.55) 22%,transparent 50%);z-index:1;pointer-events:none;"></div>
-    <!-- Subtle dark vignette bottom -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,11,20,0.45) 0%,transparent 40%);z-index:1;pointer-events:none;"></div>
+    <!-- Imagen mirrorada con scaleX(-1) en su propio layer -->
+    <div style={`
+      position:absolute;inset:0;
+      background-image:url('${TRUCK_IMG}');
+      background-size:cover;
+      background-position:center center;
+      transform:scaleX(-1);
+    `}></div>
+    <!-- Blend edge: fade left side into dark panel (no mirrorado) -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,#020b14 0%,rgba(2,11,20,0.60) 20%,transparent 48%);z-index:1;pointer-events:none;"></div>
+    <!-- Vignette bottom -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,11,20,0.50) 0%,transparent 40%);z-index:1;pointer-events:none;"></div>
   </div>
 
 </section>
