@@ -1,99 +1,109 @@
 ---
 const routes = [
   {
-    name: 'Corredor Veracruz',
     origin: 'Ciudad de México',
     destination: 'Veracruz, Ver.',
-    description: 'Conexión directa con el principal puerto marítimo de México. Ideal para importaciones, exportaciones y carga industrial.',
+    note: 'Carretera 150D · Puerto y zona industrial',
     tags: ['Puerto', 'Industrial', 'Importación / Exportación'],
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-    </svg>`,
   },
   {
-    name: 'Sureste Mexicano',
     origin: 'Ciudad de México',
-    destination: 'Oaxaca · Chiapas · Tabasco · Yucatán',
-    description: 'Cobertura total del sureste. Rutas establecidas hacia los principales centros económicos y agroindustriales de la región.',
-    tags: ['Agropecuario', 'Comercial', 'Multiestado'],
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
-    </svg>`,
+    destination: 'Puebla · Tlaxcala',
+    note: 'Corredor industrial del Bajío y altiplano central',
+    tags: ['Industrial', 'Manufactura'],
   },
   {
-    name: 'Corredor Interoceánico',
-    origin: 'Coatzacoalcos, Ver.',
-    destination: 'Salina Cruz, Oax.',
-    description: 'Operamos en el nuevo motor del comercio exterior mexicano. Transportamos carga entre el Golfo y el Pacífico por el Istmo de Tehuantepec.',
-    tags: ['Corredor estratégico', 'Comercio exterior', 'Alto volumen'],
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3.284 14.253A8.959 8.959 0 013 12c0-1.512.37-2.938 1.024-4.195" />
-    </svg>`,
+    origin: 'Ciudad de México',
+    destination: 'Oaxaca · Tabasco · Yucatán · Campeche · Q. Roo',
+    note: 'Cobertura total del sureste mexicano',
+    tags: ['Multiestado', 'Comercial', 'Agroindustrial'],
+  },
+  {
+    origin: 'Ciudad de México',
+    destination: 'Corredor Interoceánico (Tehuantepec)',
+    note: 'CDMX → Oaxaca → Istmo · Ruta estratégica de comercio exterior',
+    tags: ['Estratégico', 'Comercio exterior'],
+    highlight: true,
   },
 ];
 ---
-<section id="rutas" class="bg-white py-16 lg:py-20">
+
+<section id="rutas" class="bg-navy py-16 lg:py-24">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
     <!-- Header -->
-    <div class="mb-12">
-      <p class="text-blue text-xs font-semibold tracking-widest uppercase mb-3"
-         data-anim="fade-up">
-        Rutas y cobertura
+    <div class="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <p class="text-blue-accent text-xs font-semibold tracking-widest uppercase mb-3" data-anim="fade-up">
+          Rutas y cobertura
+        </p>
+        <h2 class="text-3xl lg:text-4xl font-bold text-white tracking-tight" data-anim="fade-up" data-delay="80">
+          Llegamos donde tu carga necesita ir
+        </h2>
+      </div>
+      <p class="text-muted-dark text-sm max-w-xs shrink-0" data-anim="fade-up" data-delay="140">
+        Rutas establecidas desde CDMX hacia los principales centros económicos del país.
       </p>
-      <h2 class="text-3xl lg:text-4xl font-bold text-navy tracking-tight"
-          data-anim="fade-up" data-delay="80">
-        Llegamos a donde tu carga necesita ir
-      </h2>
     </div>
 
-    <!-- Cards con stagger -->
-    <div class="grid md:grid-cols-3 gap-5">
-      {routes.map((route, i) => (
-        <article
-          class="card-hover border border-border rounded-xl overflow-hidden"
+    <!-- Route list -->
+    <div class="space-y-3">
+      {routes.map((r, i) => (
+        <div
+          class="group rounded-xl border px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 transition-all duration-200 hover:border-blue-accent/50"
+          style={r.highlight
+            ? 'background:rgba(0,200,255,0.05);border-color:rgba(0,200,255,0.25);'
+            : 'background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);'}
           data-anim="fade-up"
-          data-delay={i * 130}
+          data-delay={i * 100}
         >
-          <!-- Header navy -->
-          <div class="bg-navy px-5 py-4 flex items-center gap-3">
-            <span class="text-blue-accent">
-              <Fragment set:html={route.icon} />
-            </span>
-            <h3 class="text-white text-sm font-semibold">{route.name}</h3>
+          <!-- Origin → Destination -->
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <!-- Dot origin -->
+            <span class="w-2 h-2 rounded-full shrink-0"
+                  style={r.highlight ? 'background:#00c8ff;' : 'background:#1a5fb8;'}
+                  aria-hidden="true"></span>
+            <span class="text-sm font-medium text-white/70 shrink-0">{r.origin}</span>
+
+            <!-- Arrow -->
+            <svg class="w-5 h-5 shrink-0 text-blue-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+            </svg>
+
+            <!-- Destination -->
+            <span class="text-sm font-bold text-white truncate"
+                  style={r.highlight ? 'color:#00c8ff;' : ''}>{r.destination}</span>
           </div>
 
-          <!-- Cuerpo -->
-          <div class="p-5 bg-white">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="text-xs text-muted font-medium">{route.origin}</span>
-              <svg class="w-4 h-4 text-blue shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg>
-              <span class="text-xs text-navy font-semibold">{route.destination}</span>
-            </div>
-            <p class="text-xs text-muted leading-relaxed mb-4">{route.description}</p>
-            <div class="flex flex-wrap gap-1.5">
-              {route.tags.map((tag) => (
-                <span class="text-[10px] font-semibold text-blue bg-blue/8 px-2 py-0.5 rounded-full tracking-wide">
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <!-- Note -->
+          <p class="text-xs text-muted-dark hidden lg:block shrink-0 max-w-xs">{r.note}</p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-1.5 shrink-0">
+            {r.tags.map((tag) => (
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                    style={r.highlight
+                      ? 'color:#00c8ff;background:rgba(0,200,255,0.12);'
+                      : 'color:#5c9fe0;background:rgba(92,159,224,0.12);'}>
+                {tag}
+              </span>
+            ))}
           </div>
-        </article>
+        </div>
       ))}
     </div>
 
-    <!-- CTA -->
-    <div class="mt-10 text-center" data-anim="fade-up" data-delay="400">
-      <p class="text-sm text-muted mb-4">¿Tu destino no aparece aquí? Consúltanos, cubrimos toda la República.</p>
+    <!-- Footer note + CTA -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-5" data-anim="fade-up" data-delay="440">
+      <p class="text-muted-dark text-sm text-center sm:text-left">
+        ¿Tu destino no aparece? Cubrimos toda la República — consúltanos.
+      </p>
       <a
-        href="tel:5510530425"
-        class="inline-flex items-center gap-2 border border-blue text-blue text-sm font-semibold px-6 py-3 rounded-md hover:bg-blue hover:text-white transition-colors"
+        href="#cotizar"
+        class="inline-flex items-center gap-2 border border-blue-accent/40 text-blue-accent text-sm font-semibold px-6 py-3 rounded-full hover:bg-blue-accent/10 transition-colors shrink-0"
       >
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
         </svg>
         Consultar disponibilidad
       </a>

@@ -148,10 +148,11 @@ const links = [
     <!-- Animated route map -->
     <RouteMap />
 
-    <!-- Vignette: apaga el mapa en la zona de texto, lo deja vivo en los bordes -->
+    <!-- Vignette: apaga el mapa en la zona de texto, fade derecho para blend suave con la foto -->
     <div style="position:absolute;inset:0;z-index:2;pointer-events:none;
       background:
         linear-gradient(to right, rgba(2,11,20,0.78) 0%, rgba(2,11,20,0.55) 55%, transparent 100%),
+        linear-gradient(to left, rgba(2,11,20,0.60) 0%, rgba(2,11,20,0.20) 18%, transparent 40%),
         radial-gradient(ellipse at 30% 55%, transparent 25%, rgba(2,11,20,0.50) 75%);">
     </div>
 
@@ -248,7 +249,7 @@ const links = [
     <!-- Blend edge: fade left side into dark panel (no mirrorado) -->
     <div style="position:absolute;inset:0;background:linear-gradient(to right,#020b14 0%,rgba(2,11,20,0.75) 15%,rgba(2,11,20,0.35) 45%,transparent 72%);z-index:1;pointer-events:none;"></div>
     <!-- Vignette bottom -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,11,20,0.50) 0%,transparent 40%);z-index:1;pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,11,20,0.50) 0%,transparent 60%);z-index:1;pointer-events:none;"></div>
   </div>
 
 </section>
