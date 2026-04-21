@@ -218,6 +218,20 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* ─── Section textures ──────────────────────────────── */
+/* Dot grid — light/white sections */
+.bg-dots {
+  background-image: radial-gradient(circle, #cbd5e1 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+/* Hex-line mesh — dark/navy sections */
+.bg-hex-lines {
+  background-image:
+    linear-gradient(60deg,  rgba(92,159,224,0.06) 1px, transparent 1px),
+    linear-gradient(-60deg, rgba(92,159,224,0.06) 1px, transparent 1px);
+  background-size: 30px 52px;
+}
+
 /* ─── Gradient text ─────────────────────────────────── */
 .gradient-text {
   background: linear-gradient(90deg, #5c9fe0, #00c8ff);
