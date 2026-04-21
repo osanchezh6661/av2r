@@ -16,10 +16,21 @@ const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
         <h2 class="text-3xl lg:text-4xl font-bold text-navy tracking-tight mb-4" data-anim="fade-up" data-delay="80">
           Obtén tu cotización en minutos
         </h2>
-        <p class="text-muted text-base leading-relaxed mb-10" data-anim="fade-up" data-delay="140">
-          Cuéntanos qué necesitas mover y te respondemos en menos de 30 minutos.
-          Sin compromiso, sin costos ocultos.
+        <p class="text-muted text-base leading-relaxed mb-6" data-anim="fade-up" data-delay="140">
+          Cuéntanos qué necesitas mover. Sin compromiso, sin costos ocultos.
         </p>
+
+        <!-- Response time badge -->
+        <div class="inline-flex items-center gap-3 rounded-xl px-5 py-3 mb-8 border" data-anim="fade-up" data-delay="180"
+             style="background:rgba(0,200,255,0.06);border-color:rgba(0,200,255,0.25);">
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:#00c8ff;" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <div>
+            <p class="text-sm font-bold" style="color:#00c8ff;">Respuesta en menos de 30 minutos</p>
+            <p class="text-xs text-muted">Lunes a domingo, todo el día</p>
+          </div>
+        </div>
 
         <!-- Trust signals -->
         <div class="space-y-4" data-anim="fade-up" data-delay="200">
