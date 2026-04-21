@@ -15,6 +15,10 @@ import Footer from '../components/Footer.astro';
     <Hero />
     <Services />
     <Fleet />
+    <div aria-hidden="true" class="relative flex items-center justify-center" style="height:2px;background:#0b1d3a;">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(0,200,255,0.18) 25%,rgba(92,159,224,0.60) 50%,rgba(0,200,255,0.18) 75%,transparent 100%);"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#00c8ff;box-shadow:0 0 8px 3px rgba(0,200,255,0.8),0 0 24px 8px rgba(0,200,255,0.35),0 0 48px 12px rgba(26,95,184,0.25);"></div>
+    </div>
     <Routes />
     <About />
     <HowItWorks />
