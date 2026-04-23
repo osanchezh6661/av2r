@@ -58,12 +58,267 @@
     </g>
 
     <!--
-      ═══════════════════════════════════════════
-      ROUTE 1 — CDMX → Veracruz  (carretera federal 150D)
-      Angular: gira en Puebla hacia la costa
-      cycle: 14s, delay: 0s
-      ═══════════════════════════════════════════
+      ════════════════════════════════════════════
+      NUEVAS RUTAS — CDMX como hub, 4 pares, ciclo 28 s
+      Par 1 (delay  0s)  CDMX→VER  + CDMX→QRO
+      Par 2 (delay  7s)  CDMX→OAX  + CDMX→INTEROCEÁNICO
+      Par 3 (delay 14s)  CDMX→VHM  + CDMX→CAM
+      Par 4 (delay 21s)  CDMX→MTY  + CDMX→BCS
+      ════════════════════════════════════════════
     -->
+
+    <!-- ── PAR 1A · CDMX → VERACRUZ ── delay: 0s ── -->
+    <g class="route-group" style="animation-delay:0s;">
+      <path class="route-line" stroke-dasharray="100"
+        d="M 597,458 L 622,452 L 638,444 L 655,438 L 665,435"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(665,435)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="1.4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.4s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="56" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">VERACRUZ</text>
+      </g>
+    </g>
+
+    <!-- ── PAR 1B · CDMX → QUERÉTARO ── delay: 0s ── -->
+    <g class="route-group" style="animation-delay:0s;">
+      <path class="route-line" stroke-dasharray="80"
+        d="M 597,458 L 591,447 L 585,434 L 578,413"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(578,413)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.2s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="-72" y="-18" width="64" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="-70" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">QUERÉTARO</text>
+      </g>
+    </g>
+
+    <!-- ── PAR 2A · CDMX → OAXACA ── delay: 3.5s ── -->
+    <g class="route-group" style="animation-delay:3.5s;">
+      <path class="route-line" stroke-dasharray="130"
+        d="M 597,458 L 620,468 L 642,482 L 661,498 L 681,520"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(681,520)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="44" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">OAXACA</text>
+      </g>
+    </g>
+
+    <!-- ── PAR 2B · CDMX → CORREDOR INTEROCEÁNICO ── delay: 3.5s ── -->
+    <g class="route-group" style="animation-delay:3.5s;">
+      <path class="route-line" stroke-dasharray="210"
+        d="M 597,458 L 620,455 L 633,456 L 648,472 L 658,490 L 667,506 L 681,520 L 696,532 L 710,543 L 720,550"
+        fill="none" stroke="#00c8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#00c8ff" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#00c8ff" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(720,550)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#00c8ff" stroke-width="1.5">
+          <animate attributeName="r" values="5;18" dur="1.6s" begin="2.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="2.2s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="84" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#00c8ff" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.4">INTEROCEÁNICO</text>
+      </g>
+    </g>
+
+
+    <!-- ── PAR 3A · CDMX → TLAXCALA ── delay: 7s ── -->
+    <g class="route-group" style="animation-delay:7s;">
+      <path class="route-line" stroke-dasharray="60"
+        d="M 597,458 L 606,456 L 614,452 L 621,449"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(621,449)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="52" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">TLAXCALA</text>
+      </g>
+    </g>
+
+    <!-- ── PAR 3B · CDMX → OAX → VILLAHERMOSA ── delay: 7s ── -->
+    <g class="route-group" style="animation-delay:7s;">
+      <path class="route-line" stroke-dasharray="340"
+        d="M 597,458 L 620,468 L 642,482 L 661,498 L 681,520 L 716,514 L 750,505 L 786,499"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <!-- Oaxaca waypoint -->
+      <g transform="translate(681,520)">
+        <circle r="4" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <rect x="8" y="-18" width="40" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">OAXACA</text>
+      </g>
+      <g transform="translate(786,499)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="-94" y="-18" width="82" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="-92" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">VILLAHERMOSA</text>
+      </g>
+    </g>
+
+    <!-- ── PAR 4A · CDMX → MONTERREY ── delay: 10.5s ── -->
+    <g class="route-group" style="animation-delay:10.5s;">
+      <path class="route-line" stroke-dasharray="230"
+        d="M 597,458 L 578,413 L 562,376 L 547,330 L 547,290 L 558,270 L 570,262"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(570,262)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="2.4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="2.4s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="62" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">MONTERREY</text>
+      </g>
+    </g>
+
+    <!-- ── PAR 4B · CDMX → PUEBLA ── delay: 10.5s ── -->
+    <g class="route-group" style="animation-delay:10.5s;">
+      <path class="route-line" stroke-dasharray="60"
+        d="M 597,458 L 608,462 L 618,469 L 622,475"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(622,475)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="40" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">PUEBLA</text>
+      </g>
+    </g>
+
+    <!-- ── PAR 4D · CDMX → BCS (La Paz) ── COMENTADA ── -->
+    <g class="route-group" style="animation-delay:10.5s;display:none;">
+      <path class="route-line" stroke-dasharray="500"
+        d="M 597,458 L 537,438 L 469,410 L 418,358 L 387,290 L 348,263 L 300,295 L 260,340"
+        fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#lineGlow)"
+      />
+      <g transform="translate(597,458)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="38" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">CDMX</text>
+      </g>
+      <g transform="translate(260,340)">
+        <circle r="5" fill="#1a5fb8" filter="url(#nodeGlow)"/>
+        <circle r="5" fill="none" stroke="#5c9fe0" stroke-width="1.5">
+          <animate attributeName="r" values="5;17.5" dur="1.6s" begin="3.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0" dur="1.6s" begin="3.5s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="8" y="-18" width="74" height="14" fill="rgba(2,11,20,0.88)" rx="2"/>
+        <text x="10" y="-7" font-size="9" fill="#8aabcc" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.5">LA PAZ, BCS</text>
+      </g>
+    </g>
+
+    <!-- ═══ RUTAS ANTERIORES — OCULTAS (display:none) ═══ -->
+    <g style="display:none;">
     <g class="route-group" style="animation-delay:0s;">
       <path class="route-line" stroke-dasharray="100"
         d="M 597,458 L 622,452 L 638,444 L 655,438 L 665,435"
@@ -97,7 +352,7 @@
       cycle: 14s, delay: 2.3s
       ═══════════════════════════════════════════
     -->
-    <g class="route-group" style="animation-delay:2.3s;">
+    <g class="route-group" style="animation-delay:0s;">
       <path class="route-line" stroke-dasharray="310"
         d="M 597,458 L 578,413 L 562,376 L 547,330 L 547,290 L 558,270 L 570,262 L 578,235 L 584,200"
         fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -139,7 +394,7 @@
       cycle: 14s, delay: 4.6s
       ═══════════════════════════════════════════
     -->
-    <g class="route-group" style="animation-delay:4.6s;">
+    <g class="route-group" style="animation-delay:7s;">
       <path class="route-line" stroke-dasharray="385"
         d="M 469,410 L 510,430 L 548,444 L 597,458 L 625,470 L 652,462 L 682,476 L 716,465 L 750,482 L 786,499"
         fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -181,7 +436,7 @@
       cycle: 14s, delay: 6.9s
       ═══════════════════════════════════════════
     -->
-    <g class="route-group" style="animation-delay:6.9s;">
+    <g class="route-group" style="animation-delay:7s;">
       <path class="route-line" stroke-dasharray="660"
         d="M 597,458 L 537,438 L 469,410 L 444,392 L 418,358 L 400,328 L 387,290 L 370,258 L 340,218 L 298,178 L 255,138 L 210,105 L 175,82 L 155,65"
         fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -241,7 +496,7 @@
       cycle: 14s, delay: 9.2s
       ═══════════════════════════════════════════
     -->
-    <g class="route-group" style="animation-delay:9.2s;">
+    <g class="route-group" style="animation-delay:14s;">
       <path id="r5" class="route-line" stroke-dasharray="660"
         d="M 578,413 L 597,458 L 633,456 L 650,445 L 665,435 L 678,450 L 698,466 L 722,480 L 750,490 L 768,496 L 786,499 L 812,482 L 825,470 L 838,458 L 858,440 L 875,428 L 889,418 L 908,410 L 930,400"
         fill="none" stroke="#5c9fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -311,7 +566,7 @@
       cycle: 14s, delay: 11.5s
       ═══════════════════════════════════════════
     -->
-    <g class="route-group" style="animation-delay:11.5s;">
+    <g class="route-group" style="animation-delay:14s;">
       <path class="route-line" stroke-dasharray="210"
         d="M 597,458 L 620,455 L 633,456 L 648,472 L 658,490 L 667,506 L 681,520 L 696,532 L 710,543 L 720,550"
         fill="none" stroke="#00c8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -345,6 +600,7 @@
         <text x="10" y="-7" font-size="9" fill="#00c8ff" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.4">INTEROCEÁNICO</text>
       </g>
     </g>
+    </g>
 
   </svg>
 </div>
@@ -357,16 +613,27 @@
     pointer-events: none;
     overflow: hidden;
   }
-  .route-group { animation: rFade 14s ease-in-out infinite; }
-  @keyframes rFade {
-    0%,   6%  { opacity: 0; }
-    12%,  76% { opacity: 1; }
-    88%, 100% { opacity: 0; }
+  .route-group {
+    animation: rFade 14s ease-in-out infinite;
+    animation-fill-mode: backwards;
   }
-  .route-line { animation: rDraw 14s ease-in-out infinite; }
+  @keyframes rFade {
+    0%          { opacity: 0; }
+    5%          { opacity: 1; }
+    27%         { opacity: 1; }
+    33%, 100%   { opacity: 0; }
+  }
+  /* stroke-dasharray: 2000 via CSS overrides all per-path presentation attributes.
+     dashoffset 2000→0 correctly hides then draws every path (2000 is not a multiple
+     of 4000 pattern cycle, so the path sits entirely in the gap region). */
+  .route-line {
+    stroke-dasharray: 2000;
+    animation: rDraw 14s ease-in-out infinite;
+    animation-fill-mode: backwards;
+  }
   @keyframes rDraw {
-    0%,   8%   { stroke-dashoffset: 700; opacity: 0; }
-    14%,  76%  { stroke-dashoffset: 0;   opacity: 1; }
-    88%,  100% { stroke-dashoffset: 0;   opacity: 0; }
+    0%, 4%      { stroke-dashoffset: 2000; }
+    12%         { stroke-dashoffset: 0; }
+    27%, 100%   { stroke-dashoffset: 0; }
   }
 </style>

@@ -1,7 +1,7 @@
 ---
 import RouteMap from './RouteMap.astro';
 
-const TRUCK_IMG = 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1400&q=85';
+const TRUCK_IMG = '/img/caja-seca.png';
 
 const links = [
   { label: 'Servicios',  href: '#servicios' },
@@ -243,7 +243,7 @@ const links = [
       position:absolute;inset:0;
       background-image:url('${TRUCK_IMG}');
       background-size:cover;
-      background-position:10% center;
+      background-position:center center;
       transform:scaleX(-1);
     `}></div>
     <!-- Blend edge: fade left side into dark panel (no mirrorado) -->
@@ -260,7 +260,7 @@ const links = [
   @media (max-width: 767px) {
     .hero-section {
       flex-direction: column !important;
-      background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80') !important;
+      background-image: url(/img/caja-seca.png) !important;
       background-size: cover !important;
       background-position: center 30% !important;
     }
