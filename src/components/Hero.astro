@@ -236,18 +236,17 @@ const links = [
   <!-- RIGHT: truck photo (mirrorado — camión apunta hacia el contenido) -->
   <div
     class="hero-right"
-    style="flex:0 0 50%;position:relative;overflow:hidden;"
+    style="flex:0 0 50%;position:relative;overflow:hidden;background-color:#020b14;"
   >
-    <!-- Imagen mirrorada con scaleX(-1) en su propio layer -->
-    <div style={`
+    <!-- Truck image — slides in from right -->
+    <div class="truck-slide" style={`
       position:absolute;inset:0;
       background-image:url('${TRUCK_IMG}');
       background-size:cover;
-      background-position:center center;
-      transform:scaleX(-1);
+      background-position:30% center;
     `}></div>
-    <!-- Blend edge: fade left side into dark panel (no mirrorado) -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to right,#020b14 0%,rgba(2,11,20,0.75) 15%,rgba(2,11,20,0.35) 45%,transparent 72%);z-index:1;pointer-events:none;"></div>
+    <!-- Blend edge: fade left side into dark panel -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,#020b14 0%,#020b14 2%,rgba(2,11,20,0.60) 9%,transparent 17%);z-index:1;pointer-events:none;"></div>
     <!-- Vignette bottom -->
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,11,20,0.50) 0%,transparent 60%);z-index:1;pointer-events:none;"></div>
   </div>
@@ -256,13 +255,25 @@ const links = [
 
 
 <style is:global>
+  @keyframes truckDrive {
+    from {
+      transform: translateX(80px);
+      opacity: 0.4;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .truck-slide {
+    animation: truckDrive 3.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+
   /* Mobile: stack vertically, image as background behind text */
   @media (max-width: 767px) {
     .hero-section {
       flex-direction: column !important;
-      background-image: url(/img/caja-seca.png) !important;
-      background-size: cover !important;
-      background-position: center 30% !important;
+      background-image: none !important;
     }
     .hero-left {
       flex: none !important;
@@ -270,7 +281,11 @@ const links = [
       min-height: calc(100vh - 64px) !important;
       padding-left: 6vw !important;
       padding-right: 6vw !important;
-      background: linear-gradient(to bottom, rgba(2,11,20,0.70) 0%, rgba(2,11,20,0.92) 50%, #020b14 100%) !important;
+      background-color: #020b14 !important;
+      background-image:
+        linear-gradient(rgba(92,159,224,0.11) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92,159,224,0.11) 1px, transparent 1px) !important;
+      background-size: 44px 44px !important;
     }
     .hero-right { display: none !important; }
   }

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { SITE_URL, EMAIL, PHONE_DISPLAY, WA_QUOTE_URL } from '../config';
 
 interface Props {
   title?: string;
@@ -10,9 +11,9 @@ interface Props {
 
 const {
   title = 'AV2R La Mundial — Transporte de Carga Terrestre en México',
-  description = 'AV2R La Mundial: transporte terrestre de carga en México. Caja seca hasta 10 ton, GPS 24/7 y seguro incluido. Sectores industrial, comercial, construcción y agroindustrial. CDMX → Veracruz, Sureste y Corredor Interoceánico. Tel: 55 1053 0425.',
-  ogImage = '/logo.svg',
-  canonical = 'https://av2r.mx',
+  description = `AV2R La Mundial: transporte terrestre de carga en México. Caja seca hasta 10 ton, GPS 24/7 y seguro incluido. Sectores industrial, comercial, construcción y agroindustrial. CDMX → Veracruz, Sureste y Corredor Interoceánico. Tel: ${PHONE_DISPLAY}.`,
+  ogImage = `${SITE_URL}/og-image.jpg`,
+  canonical = SITE_URL,
 } = Astro.props;
 
 const schemaOrg = {
@@ -20,9 +21,9 @@ const schemaOrg = {
   '@type': 'LocalBusiness',
   name: 'AV2R La Mundial',
   description: 'Empresa de transporte terrestre de carga con base en Ciudad de México. Servicio de caja seca hasta 10 toneladas para sectores industrial, comercial, construcción y agroindustrial. Rutas a Veracruz, Sureste y Corredor Interoceánico.',
-  url: 'https://av2r.mx',
-  telephone: '+52-55-1053-0425',
-  email: 'contacto@av2rlamundial.com',
+  url: SITE_URL,
+  telephone: `+52-${PHONE_DISPLAY}`,
+  email: EMAIL,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Ciudad de México',
@@ -111,7 +112,7 @@ const schemaOrg = {
 
     <!-- WhatsApp float button -->
     <a
-      href="https://wa.me/525510530425?text=Hola%20AV2R%2C%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n%20para%20un%20servicio%20de%20transporte."
+      href={WA_QUOTE_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
