@@ -1,7 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import RouteMap from './RouteMap.astro';
-
-const TRUCK_IMG = '/img/caja-seca.png';
+import truckImg from '../assets/img/caja-seca.png';
 
 const links = [
   { label: 'Servicios',  href: '#servicios' },
@@ -238,13 +238,20 @@ const links = [
     class="hero-right"
     style="flex:0 0 50%;position:relative;overflow:hidden;background-color:#020b14;"
   >
-    <!-- Truck image — slides in from right -->
-    <div class="truck-slide" style={`
-      position:absolute;inset:0;
-      background-image:url('${TRUCK_IMG}');
-      background-size:cover;
-      background-position:30% center;
-    `}></div>
+    <!-- Truck image — LCP element: real <img> so preload scanner finds it immediately -->
+    <Image
+      src={truckImg}
+      alt="Camión caja seca AV2R La Mundial — transporte de carga pesada en México"
+      fetchpriority="high"
+      loading="eager"
+      decoding="sync"
+      format="webp"
+      widths={[768, 1200, 1440]}
+      sizes="50vw"
+      quality={85}
+      class="truck-slide"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% center;"
+    />
     <!-- Blend edge: fade left side into dark panel -->
     <div style="position:absolute;inset:0;background:linear-gradient(to right,#020b14 0%,#020b14 2%,rgba(2,11,20,0.60) 9%,transparent 17%);z-index:1;pointer-events:none;"></div>
     <!-- Vignette bottom -->
