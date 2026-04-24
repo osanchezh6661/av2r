@@ -1,12 +1,27 @@
 ---
+import { Image } from 'astro:assets';
+import cajaSecaImg  from '../assets/img/caja-seca.png';
+import cajaLocalImg from '../assets/img/caja-local.png';
+import jaulaImg     from '../assets/img/jaula.png';
+import planaImg     from '../assets/img/plana.png';
 
-const units = [
+type LocalUnit = {
+  name: string; badge: string; desc: string; tags: string[];
+  alt: string; highlight: boolean; src: ImageMetadata; remote?: never;
+};
+type RemoteUnit = {
+  name: string; badge: string; desc: string; tags: string[];
+  alt: string; highlight: boolean; remote: string; src?: never;
+};
+type Unit = LocalUnit | RemoteUnit;
+
+const units: Unit[] = [
   {
     name: 'Caja Seca',
     badge: 'Unidad principal',
     desc: 'Caja de acero cerrada que protege la carga de la intemperie en trayectos cortos y nacionales.',
     tags: ['Manufactura', 'Distribución comercial', 'Producto empacado'],
-    img: '/img/caja-seca.png',
+    src: cajaSecaImg,
     alt: 'Camión caja seca para transporte de carga pesada en México — AV2R La Mundial',
     highlight: true,
   },
@@ -15,7 +30,7 @@ const units = [
     badge: 'Carga pesada',
     desc: 'Mayor tonelaje para cargas voluminosas en rutas nacionales de largo recorrido.',
     tags: ['Materias primas', 'Industrial pesado', 'Granel y bulto'],
-    img: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
+    remote: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
     alt: 'Torton para transporte de carga industrial y granel en México — AV2R La Mundial',
     highlight: false,
   },
@@ -24,7 +39,7 @@ const units = [
     badge: 'Última milla',
     desc: 'Unidades ágiles para distribución urbana dentro de CDMX y la Zona Metropolitana.',
     tags: ['Reparto en ciudad', 'CDMX y ZMVM', 'Entrega rápida'],
-    img: '/img/caja-local.png',
+    src: cajaLocalImg,
     alt: 'Unidad de carga local para distribución urbana en CDMX y Zona Metropolitana — AV2R La Mundial',
     highlight: false,
   },
@@ -33,7 +48,7 @@ const units = [
     badge: 'Carga ventilada',
     desc: 'Estructura de rejilla con circulación de aire. Ideal para producto de campo y carga voluminosa.',
     tags: ['Agroindustrial', 'Hortalizas y frutas', 'Insumos de campo'],
-    img: '/img/jaula.png',
+    src: jaulaImg,
     alt: 'Camión jaula para transporte agroindustrial y carga ventilada en México — AV2R La Mundial',
     highlight: false,
   },
@@ -42,7 +57,7 @@ const units = [
     badge: 'Sobredimensionada',
     desc: 'Plataforma abierta para maquinaria, estructuras metálicas y material que no cabe en caja cerrada.',
     tags: ['Maquinaria pesada', 'Estructuras metálicas', 'Construcción'],
-    img: '/img/plana.png',
+    src: planaImg,
     alt: 'Plataforma plana para transporte de maquinaria pesada y estructuras metálicas — AV2R La Mundial',
     highlight: false,
   },
@@ -51,7 +66,7 @@ const units = [
     badge: 'Comercio exterior',
     desc: 'Equipo especializado para traslado de contenedores 20\' y 40\'. Importación y exportación.',
     tags: ["Contenedores 20' y 40'", 'Importación / exportación', 'Puertos'],
-    img: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
+    remote: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
     alt: 'Porta contenedor para importación y exportación en México — AV2R La Mundial',
     highlight: false,
   },
@@ -83,14 +98,27 @@ const units = [
           data-delay={i * 80}
         >
           <!-- Full-bleed photo -->
-          <img
-            src={u.img}
-            alt={u.alt}
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-            width="800"
-            height="530"
-          />
+          {u.src ? (
+            <Image
+              src={u.src}
+              alt={u.alt}
+              widths={[400, 800]}
+              sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+              format="webp"
+              quality={82}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <img
+              src={u.remote}
+              alt={u.alt}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              width="800"
+              height="530"
+            />
+          )}
 
           <!-- Dark gradient overlay — heavier at bottom -->
           <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(2,11,20,0.94) 0%, rgba(2,11,20,0.65) 38%, rgba(2,11,20,0.20) 65%, transparent 100%);" aria-hidden="true"></div>
