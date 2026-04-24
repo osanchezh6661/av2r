@@ -7,6 +7,9 @@ export default defineConfig({
   output: 'static',
   site: 'https://av2r.mx',
   integrations: [sitemap()],
+  build: {
+    inlineStylesheets: 'always',
+  },
   vite: {
     plugins: [tailwindcss()],
   },
