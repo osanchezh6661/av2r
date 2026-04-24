@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import { SITE_URL, EMAIL, PHONE_DISPLAY, WA_QUOTE_URL } from '../config';
+import interFont    from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
+import barlow900    from '@fontsource/barlow-condensed/files/barlow-condensed-latin-900-normal.woff2';
+import barlow700    from '@fontsource/barlow-condensed/files/barlow-condensed-latin-700-normal.woff2';
 
 interface Props {
   title?: string;
@@ -70,10 +73,14 @@ const schemaOrg = {
     <meta name="color-scheme" content="light dark" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <!-- Preconnect to third-party origins -->
-    <link rel="preconnect" href="https://maps.googleapis.com" />
-    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" />
+    <!-- Font preloads — break the CSS→font critical chain -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href={interFont} />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href={barlow900} />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href={barlow700} />
+
+    <!-- Third-party origins: dns-prefetch only for non-critical-path resources -->
+    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+    <link rel="dns-prefetch" href="https://maps.gstatic.com" />
     <link rel="dns-prefetch" href="https://formspree.io" />
 
     <!-- SEO primario -->
