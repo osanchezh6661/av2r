@@ -164,12 +164,15 @@ const schemaOrg = {
 
         let rafId = null;
         const updateParallax = () => {
-          parallaxEls.forEach(({ el, speed, section }) => {
-            if (!section) return;
-            const rect = section.getBoundingClientRect();
-            // Move bg image slower than scroll — creates depth
-            const offset = -rect.top * speed;
-            el.style.transform = `translateY(${offset}px)`;
+          // Read phase first — avoids interleaved read/write forced reflow
+          const offsets = parallaxEls.map(({ section, speed }) => {
+            if (!section) return null;
+            return -section.getBoundingClientRect().top * speed;
+          });
+          // Write phase after all reads are done
+          parallaxEls.forEach(({ el }, i) => {
+            if (offsets[i] === null) return;
+            el.style.transform = `translateY(${offsets[i]}px)`;
           });
           rafId = null;
         };

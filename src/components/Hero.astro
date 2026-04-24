@@ -309,10 +309,14 @@ const links = [
   const menuBtn    = document.getElementById('menu-btn');
   const heroEl     = document.getElementById('hero');
 
-  /* Nav CTA: always visible (nav is always light, CTA fits) */
+  /* Nav CTA — cache hero height to avoid forced reflow on every scroll */
+  let heroHeight = heroEl ? heroEl.offsetHeight : 0;
+  if (heroEl && typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(() => { heroHeight = heroEl.offsetHeight; }).observe(heroEl);
+  }
   const updateCta = () => {
-    if (!navCta || !heroEl) return;
-    const inHero = window.scrollY < heroEl.offsetHeight * 0.85;
+    if (!navCta) return;
+    const inHero = window.scrollY < heroHeight * 0.85;
     navCta.style.opacity    = inHero ? '0' : '1';
     navCta.style.visibility = inHero ? 'hidden' : 'visible';
   };
