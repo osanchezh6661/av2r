@@ -78,6 +78,14 @@ const schemaOrg = {
     <link rel="preload" as="font" type="font/woff2" crossorigin href={barlow900} />
     <link rel="preload" as="font" type="font/woff2" crossorigin href={barlow700} />
 
+    <!-- Override font-display to 'optional' — fonts are preloaded so they arrive in time,
+         and this eliminates CLS from font-swap on slower connections -->
+    <style set:html={`
+      @font-face { font-family:'Inter Variable'; font-style:normal; font-weight:100 900; font-display:optional; src:url('${interFont}') format('woff2'); }
+      @font-face { font-family:'Barlow Condensed'; font-style:normal; font-weight:900; font-display:optional; src:url('${barlow900}') format('woff2'); }
+      @font-face { font-family:'Barlow Condensed'; font-style:normal; font-weight:700; font-display:optional; src:url('${barlow700}') format('woff2'); }
+    `} />
+
     <!-- Third-party origins: dns-prefetch only for non-critical-path resources -->
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
     <link rel="dns-prefetch" href="https://maps.gstatic.com" />
