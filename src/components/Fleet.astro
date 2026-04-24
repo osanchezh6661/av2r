@@ -7,6 +7,7 @@ const units = [
     desc: 'Caja de acero cerrada que protege la carga de la intemperie en trayectos cortos y nacionales.',
     tags: ['Manufactura', 'Distribución comercial', 'Producto empacado'],
     img: '/img/caja-seca.png',
+    alt: 'Camión caja seca para transporte de carga pesada en México — AV2R La Mundial',
     highlight: true,
   },
   {
@@ -15,6 +16,7 @@ const units = [
     desc: 'Mayor tonelaje para cargas voluminosas en rutas nacionales de largo recorrido.',
     tags: ['Materias primas', 'Industrial pesado', 'Granel y bulto'],
     img: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
+    alt: 'Torton para transporte de carga industrial y granel en México — AV2R La Mundial',
     highlight: false,
   },
   {
@@ -23,6 +25,7 @@ const units = [
     desc: 'Unidades ágiles para distribución urbana dentro de CDMX y la Zona Metropolitana.',
     tags: ['Reparto en ciudad', 'CDMX y ZMVM', 'Entrega rápida'],
     img: '/img/caja-local.png',
+    alt: 'Unidad de carga local para distribución urbana en CDMX y Zona Metropolitana — AV2R La Mundial',
     highlight: false,
   },
   {
@@ -31,6 +34,7 @@ const units = [
     desc: 'Estructura de rejilla con circulación de aire. Ideal para producto de campo y carga voluminosa.',
     tags: ['Agroindustrial', 'Hortalizas y frutas', 'Insumos de campo'],
     img: '/img/jaula.png',
+    alt: 'Camión jaula para transporte agroindustrial y carga ventilada en México — AV2R La Mundial',
     highlight: false,
   },
   {
@@ -39,6 +43,7 @@ const units = [
     desc: 'Plataforma abierta para maquinaria, estructuras metálicas y material que no cabe en caja cerrada.',
     tags: ['Maquinaria pesada', 'Estructuras metálicas', 'Construcción'],
     img: '/img/plana.png',
+    alt: 'Plataforma plana para transporte de maquinaria pesada y estructuras metálicas — AV2R La Mundial',
     highlight: false,
   },
   {
@@ -47,6 +52,7 @@ const units = [
     desc: 'Equipo especializado para traslado de contenedores 20\' y 40\'. Importación y exportación.',
     tags: ["Contenedores 20' y 40'", 'Importación / exportación', 'Puertos'],
     img: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
+    alt: 'Porta contenedor para importación y exportación en México — AV2R La Mundial',
     highlight: false,
   },
 ];
@@ -79,7 +85,7 @@ const units = [
           <!-- Full-bleed photo -->
           <img
             src={u.img}
-            alt={`${u.name} — AV2R La Mundial`}
+            alt={u.alt}
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
             width="800"

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://av2r.mx/sitemap-index.xml
