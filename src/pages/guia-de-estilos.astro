@@ -1,0 +1,542 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de Estilos — AV2R La Mundial</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter Variable', system-ui, sans-serif;
+      background: #ffffff;
+      color: #0b1d3a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .page { max-width: 900px; margin: 0 auto; padding: 56px 40px 80px; }
+
+    /* ── Header ── */
+    .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 32px;
+      border-bottom: 3px solid #0b1d3a;
+      margin-bottom: 56px;
+    }
+    .brand-header img { height: 52px; width: auto; }
+    .brand-header-meta { text-align: right; }
+    .brand-header-meta h1 {
+      font-family: 'Barlow Condensed', system-ui, sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: #0b1d3a;
+    }
+    .brand-header-meta p {
+      font-size: 0.75rem;
+      color: #4a5f7c;
+      margin-top: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── Section titles ── */
+    .section { margin-bottom: 56px; }
+    .section-title {
+      font-family: 'Barlow Condensed', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1a5fb8;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e4e8f0;
+    }
+
+    /* ── Color palette ── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e4e8f0;
+    }
+    .swatch-color {
+      height: 80px;
+      width: 100%;
+    }
+    .swatch-info {
+      padding: 10px 12px 12px;
+      background: #fafafa;
+    }
+    .swatch-name {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #0b1d3a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 3px;
+    }
+    .swatch-hex {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.8rem;
+      color: #1a5fb8;
+      font-weight: 600;
+    }
+    .swatch-use {
+      font-size: 0.68rem;
+      color: #4a5f7c;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    /* ── Color section separators ── */
+    .palette-subtitle {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4a5f7c;
+      margin: 28px 0 14px;
+    }
+    .palette-subtitle:first-of-type { margin-top: 0; }
+
+    /* ── Typography ── */
+    .type-block {
+      border: 1px solid #e4e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .type-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: #f5f6fa;
+      border-bottom: 1px solid #e4e8f0;
+    }
+    .type-family {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0b1d3a;
+    }
+    .type-tag {
+      font-size: 0.65rem;
+      background: #1a5fb8;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .type-specimens { padding: 24px 20px 20px; }
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .type-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .type-label {
+      font-size: 0.62rem;
+      color: #4a5f7c;
+      min-width: 110px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .type-sample { line-height: 1.1; }
+
+    /* ── Usage table ── */
+    .usage-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    .usage-table th {
+      text-align: left;
+      padding: 8px 14px;
+      background: #f5f6fa;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4a5f7c;
+      font-weight: 700;
+      border-bottom: 1px solid #e4e8f0;
+    }
+    .usage-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f2f7;
+      color: #0b1d3a;
+      vertical-align: top;
+    }
+    .usage-table tr:last-child td { border-bottom: none; }
+    .usage-table .mono {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.75rem;
+      color: #1a5fb8;
+      font-weight: 600;
+    }
+    .usage-table .dot {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    .guide-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid #e4e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .guide-footer p { font-size: 0.72rem; color: #4a5f7c; }
+    .guide-footer strong { color: #0b1d3a; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; }
+      .page { padding: 32px 32px 48px; }
+      .no-print { display: none; }
+      .type-block, .swatch, .usage-table { break-inside: avoid; }
+      .section { break-inside: avoid; }
+    }
+
+    /* ── Print button ── */
+    .print-btn {
+      position: fixed;
+      top: 24px; right: 24px;
+      background: #1a5fb8;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 16px rgba(26,95,184,0.35);
+    }
+    .print-btn:hover { background: #1450a0; }
+  </style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">⬇ Guardar PDF</button>
+
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <header class="brand-header">
+    <img src="/logo.svg" alt="AV2R La Mundial" style="height:52px;filter:brightness(0);" />
+    <div class="brand-header-meta">
+      <h1>Guía de Estilos</h1>
+      <p>Identidad Visual · AV2R La Mundial · 2025</p>
+    </div>
+  </header>
+
+
+  <!-- ══ PALETA DE COLOR ══ -->
+  <section class="section">
+    <h2 class="section-title">Paleta de color</h2>
+
+    <p class="palette-subtitle">Colores principales de marca</p>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0b1d3a;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Navy Principal</div>
+          <div class="swatch-hex">#0B1D3A</div>
+          <div class="swatch-use">Fondo oscuro · textos sobre claro</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1a5fb8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Azul AV2R</div>
+          <div class="swatch-hex">#1A5FB8</div>
+          <div class="swatch-use">Color de marca · botones · CTAs</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5c9fe0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Azul Acento</div>
+          <div class="swatch-hex">#5C9FE0</div>
+          <div class="swatch-use">Íconos · etiquetas · kickers</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#00c8ff;border:1px solid #e4e8f0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cian / Neón</div>
+          <div class="swatch-hex">#00C8FF</div>
+          <div class="swatch-use">Highlights · rutas · detalles</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="palette-subtitle">Fondos y superficies</p>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#020b14;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Negro Profundo</div>
+          <div class="swatch-hex">#020B14</div>
+          <div class="swatch-use">Hero · fondos premium oscuros</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#122d5a;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Navy Medio</div>
+          <div class="swatch-hex">#122D5A</div>
+          <div class="swatch-use">Fondos secundarios oscuros</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f0f2f7; border:1px solid #dde1ea;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gris Claro</div>
+          <div class="swatch-hex">#F0F2F7</div>
+          <div class="swatch-use">Header · fondos neutros claros</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f5f6fa; border:1px solid #e4e8f0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blanco Hueso</div>
+          <div class="swatch-hex">#F5F6FA</div>
+          <div class="swatch-use">Fondo general del sitio</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="palette-subtitle">Textos sobre fondos oscuros</p>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ffffff; border:1px solid #e4e8f0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blanco</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-use">Texto primario sobre navy</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7a9ec0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Azul Suave</div>
+          <div class="swatch-hex">#7A9EC0</div>
+          <div class="swatch-use">Texto secundario sobre oscuro</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#4a5f7c;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gris Azulado</div>
+          <div class="swatch-hex">#4A5F7C</div>
+          <div class="swatch-use">Texto muted sobre fondo claro</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ TIPOGRAFÍA ══ -->
+  <section class="section">
+    <h2 class="section-title">Tipografía</h2>
+
+    <!-- Inter Variable -->
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="type-family">Inter Variable</span>
+        <span class="type-tag">Texto / UI</span>
+      </div>
+      <div class="type-specimens">
+        <div class="type-row">
+          <span class="type-label">Regular · 400</span>
+          <span class="type-sample" style="font-family:'Inter Variable',sans-serif;font-weight:400;font-size:1rem;color:#0b1d3a;">
+            Transporte de carga confiable en toda la república
+          </span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Medium · 500</span>
+          <span class="type-sample" style="font-family:'Inter Variable',sans-serif;font-weight:500;font-size:1rem;color:#0b1d3a;">
+            Cotiza tu flete ahora mismo
+          </span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Semibold · 600</span>
+          <span class="type-sample" style="font-family:'Inter Variable',sans-serif;font-weight:600;font-size:1rem;color:#0b1d3a;">
+            GPS 24/7 · Seguro incluido · NOM-012
+          </span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Bold · 700</span>
+          <span class="type-sample" style="font-family:'Inter Variable',sans-serif;font-weight:700;font-size:1rem;color:#0b1d3a;">
+            AV2R La Mundial
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barlow Condensed -->
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="type-family">Barlow Condensed</span>
+        <span class="type-tag">Títulos / Rotulación</span>
+      </div>
+      <div class="type-specimens">
+        <div class="type-row">
+          <span class="type-label">Bold · 700</span>
+          <span class="type-sample" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:2rem;line-height:1;color:#0b1d3a;text-transform:uppercase;letter-spacing:-0.01em;">
+            Transporte de Carga
+          </span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Black · 900</span>
+          <span class="type-sample" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:3rem;line-height:1;color:#0b1d3a;text-transform:uppercase;letter-spacing:-0.01em;">
+            AV2R La Mundial
+          </span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Black · 900 · Azul</span>
+          <span class="type-sample" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:3rem;line-height:1;color:#1a5fb8;text-transform:uppercase;letter-spacing:-0.01em;">
+            Carga Pesada
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ TABLA DE USO ══ -->
+  <section class="section">
+    <h2 class="section-title">Combinaciones recomendadas</h2>
+    <table class="usage-table">
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Fuente</th>
+          <th>Peso</th>
+          <th>Color texto</th>
+          <th>Fondo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Título de camión / rótulo</td>
+          <td style="font-family:'Barlow Condensed',sans-serif;font-weight:700;">Barlow Condensed</td>
+          <td>900 Black</td>
+          <td><span class="dot" style="background:#ffffff;border:1px solid #ccc;"></span><span class="mono">#FFFFFF</span></td>
+          <td><span class="dot" style="background:#0b1d3a;"></span><span class="mono">#0B1D3A</span></td>
+        </tr>
+        <tr>
+          <td>Tarjeta de presentación · nombre</td>
+          <td style="font-family:'Inter Variable',sans-serif;font-weight:700;">Inter Variable</td>
+          <td>700 Bold</td>
+          <td><span class="dot" style="background:#0b1d3a;"></span><span class="mono">#0B1D3A</span></td>
+          <td><span class="dot" style="background:#ffffff;border:1px solid #ccc;"></span><span class="mono">#FFFFFF</span></td>
+        </tr>
+        <tr>
+          <td>Tarjeta de presentación · cargo</td>
+          <td style="font-family:'Inter Variable',sans-serif;font-weight:500;">Inter Variable</td>
+          <td>500 Medium</td>
+          <td><span class="dot" style="background:#1a5fb8;"></span><span class="mono">#1A5FB8</span></td>
+          <td><span class="dot" style="background:#ffffff;border:1px solid #ccc;"></span><span class="mono">#FFFFFF</span></td>
+        </tr>
+        <tr>
+          <td>Tarjeta de presentación · datos</td>
+          <td style="font-family:'Inter Variable',sans-serif;font-weight:400;">Inter Variable</td>
+          <td>400 Regular</td>
+          <td><span class="dot" style="background:#4a5f7c;"></span><span class="mono">#4A5F7C</span></td>
+          <td><span class="dot" style="background:#ffffff;border:1px solid #ccc;"></span><span class="mono">#FFFFFF</span></td>
+        </tr>
+        <tr>
+          <td>Subtítulo / slogan</td>
+          <td style="font-family:'Barlow Condensed',sans-serif;font-weight:700;">Barlow Condensed</td>
+          <td>700 Bold</td>
+          <td><span class="dot" style="background:#5c9fe0;"></span><span class="mono">#5C9FE0</span></td>
+          <td><span class="dot" style="background:#0b1d3a;"></span><span class="mono">#0B1D3A</span></td>
+        </tr>
+        <tr>
+          <td>Botón / acción</td>
+          <td style="font-family:'Inter Variable',sans-serif;font-weight:700;">Inter Variable</td>
+          <td>700 Bold</td>
+          <td><span class="dot" style="background:#ffffff;border:1px solid #ccc;"></span><span class="mono">#FFFFFF</span></td>
+          <td><span class="dot" style="background:#1a5fb8;"></span><span class="mono">#1A5FB8</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ══ NOTAS ══ -->
+  <section class="section">
+    <h2 class="section-title">Notas para proveedores</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:0.82rem;line-height:1.6;color:#4a5f7c;">
+      <div style="background:#f5f6fa;border-radius:10px;padding:20px 22px;">
+        <strong style="color:#0b1d3a;display:block;margin-bottom:6px;">Imprenta / tarjetas</strong>
+        Solicita el logo en formato <strong style="color:#0b1d3a;">SVG</strong> o <strong style="color:#0b1d3a;">PDF vectorial</strong>
+        para impresión de alta calidad. El azul de marca <strong style="color:#1a5fb8;">#1A5FB8</strong>
+        equivale aproximadamente a <strong style="color:#0b1d3a;">Pantone 286 C</strong> o <strong style="color:#0b1d3a;">CMYK 82/62/0/0</strong>.
+      </div>
+      <div style="background:#f5f6fa;border-radius:10px;padding:20px 22px;">
+        <strong style="color:#0b1d3a;display:block;margin-bottom:6px;">Rotulación de unidades</strong>
+        Para vinilos sobre camión usar <strong style="color:#1a5fb8;">#1A5FB8</strong> como azul principal
+        y <strong style="color:#0b1d3a;">#0B1D3A</strong> como fondo oscuro. Lettering recomendado:
+        <strong style="color:#0b1d3a;">Barlow Condensed Black</strong> en mayúsculas.
+      </div>
+      <div style="background:#f5f6fa;border-radius:10px;padding:20px 22px;">
+        <strong style="color:#0b1d3a;display:block;margin-bottom:6px;">Tipografías (descarga gratuita)</strong>
+        Ambas fuentes son open source y se pueden descargar en
+        <strong style="color:#0b1d3a;">Google Fonts</strong>: buscar "Inter" y "Barlow Condensed".
+        No requieren licencia de pago.
+      </div>
+      <div style="background:#f5f6fa;border-radius:10px;padding:20px 22px;">
+        <strong style="color:#0b1d3a;display:block;margin-bottom:6px;">Pantone equivalentes</strong>
+        <strong style="color:#1a5fb8;">#1A5FB8</strong> → Pantone 286 C<br/>
+        <strong style="color:#0b1d3a;">#0B1D3A</strong> → Pantone 289 C<br/>
+        <strong style="color:#5c9fe0;">#5C9FE0</strong> → Pantone 2915 C<br/>
+        <strong style="color:#00c8ff;">#00C8FF</strong> → Pantone 298 C
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="guide-footer">
+    <p><strong>AV2R La Mundial</strong> — Guía de Estilos v1.0 · 2025</p>
+    <p>contacto@av2rlamundial.com · 55 1053 0425</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
